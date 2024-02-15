@@ -1,4 +1,4 @@
-package com.home.artz
+package com.home.artz.view.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,11 +10,20 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.home.artz.Artz
 import com.home.artz.ui.theme.ArtzTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var artworkViewModel: ArtworkViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        artworkViewModel.getArtworks()
         setContent {
             ArtzTheme {
                 // A surface container using the 'background' color from the theme
