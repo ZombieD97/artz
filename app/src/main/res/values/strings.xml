@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">artz</string>
+    <string name="menuItem_discover_contendesc">Discover artworks</string>
+    <string name="menuItem_AR_contendesc">Augmented reality</string>
+    <string name="menuItem_search_contendesc">Search</string>
+    <string name="menuItem_favorites_contendesc">Favorite artworks</string>
 </resources>
