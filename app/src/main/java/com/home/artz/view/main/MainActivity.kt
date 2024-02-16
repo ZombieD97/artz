@@ -3,6 +3,7 @@ package com.home.artz.view.main
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalAbsoluteTonalElevation
 import androidx.compose.material3.MaterialTheme
@@ -26,6 +27,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
 import com.home.artz.R
+import com.home.artz.data.model.Artwork
 import com.home.artz.ui.theme.ArtzTheme
 import com.home.artz.view.ar.ARScreen
 import com.home.artz.view.details.DetailsScreen
@@ -38,24 +40,36 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var artworkViewModel: ArtworkViewModel
+    private val artworkViewModel: ArtworkViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             ArtzTheme {
                 val mainNavController = rememberNavController()
-                NavHost(navController = mainNavController, graph =mainNavController.createGraph(Screen.HOME.name, null) {
+                NavHost(navController = mainNavController, graph = mainNavController.createGraph(Screen.HOME.name, null) {
                     composable(Screen.HOME.name) {
                         val homeScreenNavController = rememberNavController()
                         Scaffold(bottomBar = {
                             BottomNavigationBar(homeScreenNavController)
                         }) {
                             it
-                            HomeScreen(homeScreenNavController) {
-                                mainNavController.navigate("details")
-                            }
+                            NavHost(navController = homeScreenNavController, graph = homeScreenNavController.createGraph(Screen.HOME_DISCOVER.name, null) {
+                                composable(Screen.HOME_DISCOVER.name) {
+                                    DiscoverScreen(artworkViewModel.artworks.value) {
+                                        mainNavController.navigate(Screen.DETAILS.name)
+                                    }
+                                }
+                                composable(Screen.HOME_AR.name) {
+                                    ARScreen()
+                                }
+                                composable(Screen.HOME_SEARCH.name) {
+                                    SearchScreen()
+                                }
+                                composable(Screen.HOME_FAVORITES.name) {
+                                    FavoriteScreen()
+                                }
+                            })
                         }
                     }
                     composable(Screen.DETAILS.name) {
@@ -106,22 +120,4 @@ fun BottomNavigationBar(navController: NavHostController) {
             )
         }
     }
-}
-
-@Composable
-fun HomeScreen(navController: NavHostController, onClick: () -> Unit) {
-    NavHost(navController = navController, graph = navController.createGraph(Screen.HOME_DISCOVER.name, null) {
-        composable(Screen.HOME_DISCOVER.name) {
-            DiscoverScreen(onClick)
-        }
-        composable(Screen.HOME_AR.name) {
-            ARScreen()
-        }
-        composable(Screen.HOME_SEARCH.name) {
-            SearchScreen()
-        }
-        composable(Screen.HOME_FAVORITES.name) {
-            FavoriteScreen()
-        }
-    })
 }

@@ -74,6 +74,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("androidx.compose.foundation:foundation:1.6.1")
 
     // Test
     testImplementation("junit:junit:4.13.2")
@@ -99,4 +100,7 @@ dependencies {
 
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // Coil
+    implementation("io.coil-kt:coil-compose:2.5.0")
 }
