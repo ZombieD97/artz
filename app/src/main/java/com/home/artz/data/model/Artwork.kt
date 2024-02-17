@@ -12,7 +12,8 @@ data class Artwork(
     @field:Json(name = "dimensions") val dimensions: ArtworkDimensions,
     @field:Json(name = "medium") val contentDescription: String,
     @field:Json(name = "image_versions") val imageSizeVariations: List<String>,
-    @field:Json(name = "_links") val imageLinks: ImageLinks
+    @field:Json(name = "_links") val imageLinks: ImageLinks,
+    var isFavorite: Boolean = false
 )
 
 data class ImageLinks(@field:Json(name = "image") val artworkUrl: ArtworkUrl)

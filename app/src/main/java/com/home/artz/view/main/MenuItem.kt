@@ -10,26 +10,26 @@ sealed class MenuItem(
     @StringRes var contentDesc: Int
 ) {
     class Discover : MenuItem(
-        R.drawable.menu_item_discover_selected,
+        R.drawable.menu_item_discover,
         Screen.HOME_DISCOVER,
-        R.string.menuItem_discover_contendesc
+        R.string.menuItem_discover_contentdesc
     )
 
     class AR : MenuItem(
-        R.drawable.menu_item_ar_selected,
+        R.drawable.menu_item_ar,
         Screen.HOME_AR,
-        R.string.menuItem_discover_contendesc
+        R.string.menuItem_discover_contentdesc
     )
 
     class Search : MenuItem(
-        R.drawable.menu_item_search_selected,
+        R.drawable.menu_item_search,
         Screen.HOME_SEARCH,
-        R.string.menuItem_discover_contendesc
+        R.string.menuItem_discover_contentdesc
     )
 
     class Favorites : MenuItem(
-        R.drawable.menu_item_favorites_selected,
+        R.drawable.menu_item_favorites,
         Screen.HOME_FAVORITES,
-        R.string.menuItem_discover_contendesc
+        R.string.menuItem_discover_contentdesc
     )
 }

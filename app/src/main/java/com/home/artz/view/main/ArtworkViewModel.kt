@@ -17,6 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ArtworkViewModel @Inject constructor(private val artworkRepository: ArtworkRepository): ViewModel() {
 
+    var selectedArtwork = mutableStateOf<Artwork?>(null)
     private val _artworks = mutableStateOf<List<Artwork>>(emptyList())
     val artworks: State<List<Artwork>>
         get() = _artworks
@@ -29,5 +30,9 @@ class ArtworkViewModel @Inject constructor(private val artworkRepository: Artwor
         viewModelScope.launch {
             _artworks.value = artworkRepository.getArtworks()
         }
+    }
+
+    fun modifyFavoriteStateOn(artwork: Artwork, isFavorite: Boolean) {
+        //valami
     }
 }

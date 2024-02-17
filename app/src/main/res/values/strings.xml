@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">artz</string>
-    <string name="menuItem_discover_contendesc">Discover artworks</string>
-    <string name="menuItem_AR_contendesc">Augmented reality</string>
-    <string name="menuItem_search_contendesc">Search</string>
-    <string name="menuItem_favorites_contendesc">Favorite artworks</string>
+    <string name="menuItem_discover_contentdesc">Discover artworks</string>
+    <string name="menuItem_AR_contentdesc">Augmented reality</string>
+    <string name="menuItem_search_contentdesc">Search</string>
+    <string name="menuItem_favorites_contentdesc">Favorite artworks</string>
+    <string name="favorite_icon_filled_contentdesc">remove artwork from favorites</string>
+    <string name="favorite_icon_contentdesc">add artwork to favorites</string>
 </resources>

@@ -52,13 +52,15 @@ class MainActivity : ComponentActivity() {
                         val homeScreenNavController = rememberNavController()
                         Scaffold(bottomBar = {
                             BottomNavigationBar(homeScreenNavController)
-                        }) {
-                            it
+                        }) { contentPadding ->
                             NavHost(navController = homeScreenNavController, graph = homeScreenNavController.createGraph(Screen.HOME_DISCOVER.name, null) {
                                 composable(Screen.HOME_DISCOVER.name) {
-                                    DiscoverScreen(artworkViewModel.artworks.value) {
+                                    DiscoverScreen(artworkViewModel.artworks.value, contentPadding, { artwork ->
+                                        artworkViewModel.selectedArtwork.value = artwork
                                         mainNavController.navigate(Screen.DETAILS.name)
-                                    }
+                                    }, onFavoriteClicked = { artwork, isFavorite ->
+                                        artworkViewModel.modifyFavoriteStateOn(artwork, isFavorite)
+                                    })
                                 }
                                 composable(Screen.HOME_AR.name) {
                                     ARScreen()
