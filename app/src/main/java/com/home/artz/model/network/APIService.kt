@@ -1,10 +1,10 @@
-package com.home.artz.data.communication
+package com.home.artz.model.network
 
-import com.home.artz.data.model.DiscoverEmbeddedResponse
+import com.home.artz.model.datamodel.DiscoverEmbeddedResponse
 import retrofit2.Response
 import retrofit2.http.GET
 
-interface CommunicationService {
+interface APIService {
 
     @GET("/api/artworks?size=30")
     suspend fun getArtworks(): Response<DiscoverEmbeddedResponse>

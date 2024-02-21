@@ -1,9 +1,12 @@
 package com.home.artz.view.main
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.annotation.StringRes
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalAbsoluteTonalElevation
 import androidx.compose.material3.MaterialTheme
@@ -16,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -27,15 +31,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
 import com.home.artz.R
-import com.home.artz.data.model.Artwork
-import com.home.artz.ui.theme.ArtzTheme
+import com.home.artz.view.ui.theme.ArtzTheme
 import com.home.artz.view.ar.ARScreen
 import com.home.artz.view.details.DetailsScreen
 import com.home.artz.view.discover.DiscoverScreen
 import com.home.artz.view.favorite.FavoriteScreen
 import com.home.artz.view.search.SearchScreen
+import com.home.artz.viewmodel.ArtworkViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -47,39 +50,73 @@ class MainActivity : ComponentActivity() {
         setContent {
             ArtzTheme {
                 val mainNavController = rememberNavController()
-                NavHost(navController = mainNavController, graph = mainNavController.createGraph(Screen.HOME.name, null) {
-                    composable(Screen.HOME.name) {
-                        val homeScreenNavController = rememberNavController()
-                        Scaffold(bottomBar = {
-                            BottomNavigationBar(homeScreenNavController)
-                        }) { contentPadding ->
-                            NavHost(navController = homeScreenNavController, graph = homeScreenNavController.createGraph(Screen.HOME_DISCOVER.name, null) {
-                                composable(Screen.HOME_DISCOVER.name) {
-                                    DiscoverScreen(artworkViewModel.artworks.value, contentPadding, { artwork ->
-                                        artworkViewModel.selectedArtwork.value = artwork
-                                        mainNavController.navigate(Screen.DETAILS.name)
-                                    }, onFavoriteClicked = { artwork, isFavorite ->
-                                        artworkViewModel.modifyFavoriteStateOn(artwork, isFavorite)
+                NavHost(
+                    navController = mainNavController,
+                    graph = mainNavController.createGraph(Screen.HOME.name, null) {
+                        composable(Screen.HOME.name) {
+                            val homeScreenNavController = rememberNavController()
+                            Scaffold(bottomBar = {
+                                BottomNavigationBar(homeScreenNavController)
+                            }) { contentPadding ->
+                                val artworks = rememberSaveable {
+                                    artworkViewModel.cachedArtworks
+                                }
+                                NavHost(
+                                    navController = homeScreenNavController,
+                                    graph = homeScreenNavController.createGraph(
+                                        Screen.HOME_DISCOVER.name,
+                                        null
+                                    ) {
+                                        composable(Screen.HOME_DISCOVER.name) {
+                                            Log.e("LOGTAG", "recomp discover")
+                                            DiscoverScreen(
+                                                artworks.value,
+                                                contentPadding,
+                                                { artwork ->
+                                                    artworkViewModel.setArtworkSelected(artwork)
+                                                    mainNavController.navigate(Screen.DETAILS.name)
+                                                },
+                                                onFavoriteButtonClicked = { artwork, isFavorite ->
+                                                    artworkViewModel.modifyFavoriteStateOn(
+                                                        artwork,
+                                                        isFavorite
+                                                    )
+                                                })
+                                        }
+                                        composable(Screen.HOME_AR.name) {
+                                            ARScreen()
+                                        }
+                                        composable(Screen.HOME_SEARCH.name) {
+                                            SearchScreen()
+                                        }
+                                        composable(Screen.HOME_FAVORITES.name) {
+                                            val favorites = artworks.value.filter { it.isFavorite }
+                                            FavoriteScreen(favorites,
+                                                contentPadding,
+                                                { index ->
+                                                    artworkViewModel.setArtworkSelected(index)
+                                                    mainNavController.navigate(Screen.DETAILS.name)
+                                                },
+                                                onFavoriteButtonClicked = { artwork, isFavorite ->
+                                                    artworkViewModel.modifyFavoriteStateOn(
+                                                        artwork,
+                                                        isFavorite
+                                                    )
+                                                })
+                                        }
                                     })
-                                }
-                                composable(Screen.HOME_AR.name) {
-                                    ARScreen()
-                                }
-                                composable(Screen.HOME_SEARCH.name) {
-                                    SearchScreen()
-                                }
-                                composable(Screen.HOME_FAVORITES.name) {
-                                    FavoriteScreen()
-                                }
-                            })
+                            }
                         }
-                    }
-                    composable(Screen.DETAILS.name) {
-                        DetailsScreen {
-                            mainNavController.navigate("home")
+                        composable(Screen.DETAILS.name) {
+                            DetailsScreen {
+                                mainNavController.navigate(Screen.HOME.name)
+                            }
                         }
-                    }
-                })
+                    })
+                artworkViewModel.userMessage.value?.let {
+                    ShowMessage(message = it)
+                    artworkViewModel.clearUserMessage()
+                }
             }
         }
     }
@@ -108,7 +145,9 @@ fun BottomNavigationBar(navController: NavHostController) {
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = colorResource(id = R.color.black),
                     unselectedIconColor = colorResource(id = R.color.black_50),
-                    indicatorColor = MaterialTheme.colorScheme.surfaceColorAtElevation(LocalAbsoluteTonalElevation.current)
+                    indicatorColor = MaterialTheme.colorScheme.surfaceColorAtElevation(
+                        LocalAbsoluteTonalElevation.current // Removes the indicator behind navbar items
+                    )
                 ),
                 modifier = Modifier.semantics {
                     contentDescription = contentDesc
@@ -122,4 +161,10 @@ fun BottomNavigationBar(navController: NavHostController) {
             )
         }
     }
+}
+
+@Composable
+private fun ShowMessage(@StringRes message: Int) {
+    val context = LocalContext.current
+    Toast.makeText(context, message, Toast.LENGTH_LONG).show()
 }

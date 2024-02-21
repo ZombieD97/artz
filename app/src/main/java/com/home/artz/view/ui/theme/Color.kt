@@ -1,4 +1,4 @@
-package com.home.artz.ui.theme
+package com.home.artz.view.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

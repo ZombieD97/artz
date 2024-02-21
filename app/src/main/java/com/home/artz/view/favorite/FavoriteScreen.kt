@@ -1,12 +1,21 @@
 package com.home.artz.view.favorite
 
-import androidx.compose.foundation.layout.Row
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
+import com.home.artz.model.datamodel.Artwork
+import com.home.artz.view.main.ArtworkList
 
 @Composable
-fun FavoriteScreen() {
-    Row {
-        Text(text = "Favorites")
-    }
+fun FavoriteScreen(
+    artworks: List<Artwork>,
+    contentPadding: PaddingValues,
+    onArtworkClicked: (Artwork) -> Unit,
+    onFavoriteButtonClicked: (Artwork, Boolean) -> Unit
+) {
+    ArtworkList(
+        artworks = artworks,
+        contentPadding = contentPadding,
+        onArtworkClicked = onArtworkClicked,
+        onFavoriteButtonClicked = onFavoriteButtonClicked
+    )
 }

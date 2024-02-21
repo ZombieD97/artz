@@ -1,4 +1,4 @@
-package com.home.artz.data.communication
+package com.home.artz.model.network
 
 import com.home.artz.BuildConfig
 import okhttp3.Interceptor

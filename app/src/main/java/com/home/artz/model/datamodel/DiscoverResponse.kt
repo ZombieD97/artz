@@ -1,4 +1,4 @@
-package com.home.artz.data.model
+package com.home.artz.model.datamodel
 
 import com.squareup.moshi.Json
 
