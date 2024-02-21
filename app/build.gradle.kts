@@ -24,7 +24,7 @@ android {
     }
 
     buildTypes {
-        val appToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MDg0OTk4MTYsImlhdCI6MTcwNzg5NTAxNiwiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1Y2M2OGU4YTBkZjZlMDAwZGRkOGNhMSJ9.1a_WdP5C5RCxmEOavGEqZM2b3AknxUId2YmdxZiaujo"
+        val appToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MDkxMDkwOTIsImlhdCI6MTcwODUwNDI5MiwiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZDViNGU0ZmZkMDhmMDAwZTI5OGQ1NSJ9.n-fP9LAJooXq7vOB37FSsUWX0kgMcIHVSHRBJTyjsPA"
         debug {
             buildConfigField("String", "XAPPTOKEN", "\"$appToken\"")
         }
@@ -74,6 +74,8 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("androidx.compose.foundation:foundation:1.6.1")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Test
     testImplementation("junit:junit:4.13.2")
@@ -83,7 +85,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
 
     // Kotlin Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     // Retrofit, okhttp
     val retrofitVersion = "2.6.0"
@@ -93,10 +95,22 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:$okhttpVersion")
     implementation("com.squareup.okhttp3:logging-interceptor:$okhttpVersion")
 
-    // Dagger2
+    // Hilt
     implementation("com.google.dagger:hilt-android:2.48")
     kapt("com.google.dagger:hilt-android-compiler:2.48")
 
     // Navigation
     implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // Coil
+    implementation("io.coil-kt:coil-compose:2.5.0")
+
+    // Room
+    val roomVersion = "2.6.1"
+
+    implementation("androidx.room:room-runtime:$roomVersion")
+    annotationProcessor("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-paging:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
 }

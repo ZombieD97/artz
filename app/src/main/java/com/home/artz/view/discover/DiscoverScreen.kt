@@ -1,15 +1,21 @@
 package com.home.artz.view.discover
 
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Row
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
+import com.home.artz.model.datamodel.Artwork
+import com.home.artz.view.main.ArtworkList
 
 @Composable
-fun DiscoverScreen(onClick: () -> Unit) {
-    Row {
-        Text(text = "Discover", modifier = Modifier.clickable { onClick.invoke() })
-    }
+fun DiscoverScreen(
+    artworks: List<Artwork>,
+    contentPadding: PaddingValues,
+    onArtworkClicked: (Artwork) -> Unit,
+    onFavoriteButtonClicked: (Artwork, Boolean) -> Unit
+) {
+    ArtworkList(
+        artworks = artworks,
+        contentPadding = contentPadding,
+        onArtworkClicked = onArtworkClicked,
+        onFavoriteButtonClicked = onFavoriteButtonClicked
+    )
 }
