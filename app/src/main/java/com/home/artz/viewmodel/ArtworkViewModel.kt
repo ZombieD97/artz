@@ -1,6 +1,7 @@
 package com.home.artz.viewmodel
 
 import androidx.annotation.StringRes
+import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -14,21 +15,32 @@ import javax.inject.Inject
 @HiltViewModel
 class ArtworkViewModel @Inject constructor(private val artworkRepository: IArtworkRepository): ViewModel() {
 
-    private val artworks = mutableStateOf<List<Artwork>>(emptyList())
     val cachedArtworks = mutableStateOf<List<Artwork>>(emptyList())
     var selectedArtwork = mutableStateOf<Artwork?>(null)
 
     @StringRes
     val userMessage = mutableStateOf<Int?>(null)
+    private val _showPagingLoader = mutableStateOf(false)
+    val showPagingLoader: State<Boolean> = _showPagingLoader
 
     init {
-        fetchArtworks()
+        fetchArtworks(true)
     }
 
-    private fun fetchArtworks() {
+    private fun fetchArtworks(init: Boolean) {
         viewModelScope.launch {
-            artworks.value = artworkRepository.fetchArtworks()
-            cachedArtworks.value = artworks.value
+            artworkRepository.fetchArtworks(init)?.let {
+                if (init) {
+                    cachedArtworks.value = it
+                } else {
+                    val combinedList = mutableListOf<Artwork>().apply {
+                        addAll(cachedArtworks.value)
+                        addAll(it)
+                    } // :(
+                    cachedArtworks.value = combinedList.toList()
+                    _showPagingLoader.value = false
+                }
+            }
         }
     }
 
@@ -46,11 +58,16 @@ class ArtworkViewModel @Inject constructor(private val artworkRepository: IArtwo
         }
     }
 
-    fun setArtworkSelected(artwork: Artwork) {
+    fun setSelectedArtwork(artwork: Artwork) {
         selectedArtwork.value = artwork
     }
 
     fun clearUserMessage() {
         userMessage.value = null
+    }
+
+    fun loadNextPage() {
+        _showPagingLoader.value = true
+        fetchArtworks(false)
     }
 }
