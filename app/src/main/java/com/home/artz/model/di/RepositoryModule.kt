@@ -7,6 +7,7 @@ import com.home.artz.model.database.ArtworkTypeConverters
 import com.home.artz.model.network.AuthenticationInterceptor
 import com.home.artz.model.network.APIService
 import com.home.artz.model.repository.ArtworkRepository
+import com.home.artz.model.repository.Constants
 import com.home.artz.model.repository.IArtworkRepository
 import dagger.Module
 import dagger.Provides
@@ -23,10 +24,6 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 class RepositoryModule {
-
-    private val BASE_URL = "https://api.artsy.net/"
-    private val DATABASE_NAME = "artzDatabase"
-
     @Provides
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient()
 
@@ -35,7 +32,7 @@ class RepositoryModule {
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
         return Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(Constants.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(
                 okHttpClient.newBuilder()
@@ -49,7 +46,7 @@ class RepositoryModule {
     @Singleton
     fun provideDatabase(@ApplicationContext applicationContext: Context) = Room.databaseBuilder(
         applicationContext,
-        ArtzDatabase::class.java, DATABASE_NAME
+        ArtzDatabase::class.java, Constants.DATABASE_NAME
     ).addTypeConverter(ArtworkTypeConverters()).build()
 
     @Provides

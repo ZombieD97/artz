@@ -1,12 +1,13 @@
 package com.home.artz.view.main
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.LocalAbsoluteTonalElevation
 import androidx.compose.material3.MaterialTheme
@@ -17,10 +18,13 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
@@ -31,12 +35,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
 import com.home.artz.R
-import com.home.artz.view.ui.theme.ArtzTheme
 import com.home.artz.view.ar.ARScreen
 import com.home.artz.view.details.DetailsScreen
 import com.home.artz.view.discover.DiscoverScreen
 import com.home.artz.view.favorite.FavoriteScreen
 import com.home.artz.view.search.SearchScreen
+import com.home.artz.view.ui.theme.ArtzTheme
 import com.home.artz.viewmodel.ArtworkViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -58,7 +62,7 @@ class MainActivity : ComponentActivity() {
                             Scaffold(bottomBar = {
                                 BottomNavigationBar(homeScreenNavController)
                             }) { contentPadding ->
-                                val artworks = rememberSaveable {
+                                val artworks = remember {
                                     artworkViewModel.cachedArtworks
                                 }
                                 NavHost(
@@ -68,12 +72,12 @@ class MainActivity : ComponentActivity() {
                                         null
                                     ) {
                                         composable(Screen.HOME_DISCOVER.name) {
-                                            Log.e("LOGTAG", "recomp discover")
                                             DiscoverScreen(
                                                 artworks.value,
                                                 contentPadding,
+                                                artworkViewModel.showPagingLoader,
                                                 { artwork ->
-                                                    artworkViewModel.setArtworkSelected(artwork)
+                                                    artworkViewModel.setSelectedArtwork(artwork)
                                                     mainNavController.navigate(Screen.DETAILS.name)
                                                 },
                                                 onFavoriteButtonClicked = { artwork, isFavorite ->
@@ -81,6 +85,9 @@ class MainActivity : ComponentActivity() {
                                                         artwork,
                                                         isFavorite
                                                     )
+                                                },
+                                                onScrollEnded = {
+                                                    artworkViewModel.loadNextPage()
                                                 })
                                         }
                                         composable(Screen.HOME_AR.name) {
@@ -94,7 +101,7 @@ class MainActivity : ComponentActivity() {
                                             FavoriteScreen(favorites,
                                                 contentPadding,
                                                 { index ->
-                                                    artworkViewModel.setArtworkSelected(index)
+                                                    artworkViewModel.setSelectedArtwork(index)
                                                     mainNavController.navigate(Screen.DETAILS.name)
                                                 },
                                                 onFavoriteButtonClicked = { artwork, isFavorite ->

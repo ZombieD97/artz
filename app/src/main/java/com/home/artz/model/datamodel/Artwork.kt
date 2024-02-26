@@ -20,7 +20,7 @@ data class Artwork(
 )
 
 data class ImageLinks(
-    @field:Json(name = "image") val artworkUrl: ArtworkUrl,
+    @field:Json(name = "image") val artworkUrl: ArtworkUrl?,
     @field:Json(name = "similar_artworks") val similarArtworks: ArtworkUrl,
 )
 
@@ -31,8 +31,9 @@ data class ArtworkDimensions(@field:Json(name = "cm") val dimensions: MetricDime
 data class MetricDimensions(@field:Json(name = "text") val size: String)
 
 fun Artwork.appendImageVersion(version: ImageVersion): Artwork {
-    imageLinks.artworkUrl.href =
-        imageLinks.artworkUrl.href.removeSuffix("{image_version}.jpg") + "${version.name.lowercase()}.jpg"
+    imageLinks.artworkUrl?.let { artworkUrl ->
+        artworkUrl.href = artworkUrl.href.removeSuffix("{image_version}.jpg") + "${version.name.lowercase()}.jpg"
+    }
     return this
 }
 

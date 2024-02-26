@@ -11,8 +11,8 @@ import com.home.artz.model.datamodel.MetricDimensions
 class ArtworkTypeConverters {
     @TypeConverter
     fun imageLinksToString(imageLinks: ImageLinks?): String? {
-        return imageLinks?.let {
-            "${it.artworkUrl.href}|${it.similarArtworks.href}"
+        return imageLinks?.artworkUrl?.let {
+            "${it.href}|${it.href}"
         }
     }
 
