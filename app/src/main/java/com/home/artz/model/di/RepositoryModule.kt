@@ -3,12 +3,14 @@ package com.home.artz.model.di
 import android.content.Context
 import androidx.room.Room
 import com.home.artz.model.database.ArtzDatabase
-import com.home.artz.model.database.ArtworkTypeConverters
+import com.home.artz.model.database.ArtzTypeConverter
 import com.home.artz.model.network.AuthenticationInterceptor
 import com.home.artz.model.network.APIService
-import com.home.artz.model.repository.ArtworkRepository
+import com.home.artz.model.repository.artwork.ArtworkRepository
 import com.home.artz.model.repository.Constants
-import com.home.artz.model.repository.IArtworkRepository
+import com.home.artz.model.repository.artist.ArtistRepository
+import com.home.artz.model.repository.artist.IArtistRepository
+import com.home.artz.model.repository.artwork.IArtworkRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -47,11 +49,16 @@ class RepositoryModule {
     fun provideDatabase(@ApplicationContext applicationContext: Context) = Room.databaseBuilder(
         applicationContext,
         ArtzDatabase::class.java, Constants.DATABASE_NAME
-    ).addTypeConverter(ArtworkTypeConverters()).build()
+    ).addTypeConverter(ArtzTypeConverter()).build()
 
     @Provides
     fun provideArtworkRepository(
         apiService: APIService,
         database: ArtzDatabase
     ): IArtworkRepository = ArtworkRepository(apiService, database)
+
+    @Provides
+    fun provideArtistRepository(
+        apiService: APIService
+    ): IArtistRepository = ArtistRepository(apiService)
 }

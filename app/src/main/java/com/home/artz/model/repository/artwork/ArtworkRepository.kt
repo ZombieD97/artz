@@ -1,17 +1,21 @@
-package com.home.artz.model.repository
+package com.home.artz.model.repository.artwork
 
 import com.home.artz.model.database.ArtzDatabase
+import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.model.datamodel.ImageVersion
 import com.home.artz.model.datamodel.appendImageVersion
 import com.home.artz.model.network.APIService
+import com.home.artz.model.repository.Constants
+import com.home.artz.model.repository.artist.ArtistRepository
+import com.home.artz.model.repository.artist.IArtistRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ArtworkRepository @Inject constructor(
-    private var apiService: APIService,
-    private var database: ArtzDatabase
+    private val apiService: APIService,
+    private val database: ArtzDatabase
 ) : IArtworkRepository {
 
     private val ARTWORK_PAGE_SIZE = 30
@@ -30,13 +34,16 @@ class ArtworkRepository @Inject constructor(
         val response = apiService.getArtworks(url).body()
         val artworks = response?.embeddedResponse?.artworks
         return artworks?.let {
-            nextPageLink = response.paginationLinks.nextPage.href
+            nextPageLink = response.paginationLinks.nextPage.imageUrl
 
             val favoriteArtworkIds = database.favoritesDao().getFavorites().map { it.id }
 
             return artworks.onEach { artwork ->
                 artwork.isFavorite = favoriteArtworkIds.contains(artwork.id)
-                artwork.appendImageVersion(ImageVersion.MEDIUM)
+                artwork.imageLinks.artworkUrl?.imageUrl?.let {
+                    artwork.imageLinks.artworkUrl.mediumImage = appendImageVersion(it, ImageVersion.MEDIUM)
+                    artwork.imageLinks.artworkUrl.largeImageUrl = appendImageVersion(it, ImageVersion.LARGE)
+                }
             }
         }
     }

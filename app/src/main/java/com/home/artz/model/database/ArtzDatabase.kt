@@ -9,7 +9,7 @@ import com.home.artz.model.datamodel.Artwork
     entities = [Artwork::class],
     version = 1
 )
-@TypeConverters(ArtworkTypeConverters::class)
+@TypeConverters(ArtzTypeConverter::class)
 abstract class ArtzDatabase : RoomDatabase() {
     abstract fun favoritesDao(): FavoritesDao
 }

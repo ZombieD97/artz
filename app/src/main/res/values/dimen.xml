@@ -4,5 +4,9 @@
     <dimen name="padding_normal">8dp</dimen>
     <dimen name="padding_large">16dp</dimen>
     <dimen name="favorite_icon_size">30dp</dimen>
-    <dimen name="progress_bar_size">44dp</dimen>
+    <dimen name="details_icons_size">35dp</dimen>
+    <dimen name="progress_bar_size">50dp</dimen>
+    <dimen name="fully_rounded">44dp</dimen>
+
+    <dimen name="artwork_title_size">32sp</dimen>
 </resources>

@@ -1,22 +1,34 @@
 package com.home.artz.viewmodel
 
+import android.graphics.BitmapFactory
 import androidx.annotation.StringRes
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
-import com.home.artz.model.repository.IArtworkRepository
+import com.home.artz.model.repository.artist.ArtistRepository
+import com.home.artz.model.repository.artwork.IArtworkRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.IOException
+import java.net.URL
 import javax.inject.Inject
 
+
 @HiltViewModel
-class ArtworkViewModel @Inject constructor(private val artworkRepository: IArtworkRepository): ViewModel() {
+class ArtworkViewModel @Inject constructor(
+    private val artworkRepository: IArtworkRepository,
+    private val artistRepository: ArtistRepository) : ViewModel() {
 
     val cachedArtworks = mutableStateOf<List<Artwork>>(emptyList())
     var selectedArtwork = mutableStateOf<Artwork?>(null)
+    var selectedArtworkLargeImage = mutableStateOf<ImageBitmap?>(null)
 
     @StringRes
     val userMessage = mutableStateOf<Int?>(null)
@@ -59,7 +71,25 @@ class ArtworkViewModel @Inject constructor(private val artworkRepository: IArtwo
     }
 
     fun setSelectedArtwork(artwork: Artwork) {
+        selectedArtworkLargeImage.value = null
         selectedArtwork.value = artwork
+        viewModelScope.launch {
+            selectedArtwork.value?.let {
+                it.artists = artistRepository.getArtistsBy(it.id)
+                val imageUrl = selectedArtwork.value?.imageLinks?.artworkUrl?.largeImageUrl
+                    ?: selectedArtwork.value?.imageLinks?.artworkUrl?.mediumImage
+                imageUrl?.let {
+                    withContext(Dispatchers.IO) {
+                        try {
+                            val url = URL(it)
+                            selectedArtworkLargeImage.value = BitmapFactory.decodeStream(url.openConnection().getInputStream()).asImageBitmap()
+                        } catch (e: IOException) {
+                            userMessage.value = R.string.something_went_wrong
+                        }
+                    }
+                }
+            }
+        }
     }
 
     fun clearUserMessage() {

@@ -2,10 +2,16 @@ package com.home.artz.view.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val GreenPrimary_Dark = Color(0xCC9CA571)
-val GreenSecondary_Dark = Color(0xFFCECE8B)
-val Tertiary_Dark = Color(0xFFAA5834)
+val GreenPrimary = Color(0xFF5C6349)
+val GreenSecondary = Color(0xFFA2A36D)
+val Tertiary = Color(0xFF793C24)
+val Accent = Color(0xFFFAA224)
 
-val GreenPrimary = Color(0xFF6b714d)
-val GreenSecondary = Color(0xFFa6a670)
-val Tertiary = Color(0xFF854428)
+val Background = Color(0xFFE9E9E9)
+val Surface = Color(0xFFE9E9E9)
+val Background_Dark = Color(0xFF000000)
+val Surface_Dark = Color(0xFF000000)
+
+val Black50 = Color(0x80000000)
+val Black95 = Color(0xF2000000)
+val White = Color(0xFFE9E9E9)

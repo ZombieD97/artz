@@ -11,4 +11,18 @@
     <string name="favorite_dialog_remove_title">Are you sure you want to delete this artwork from your favorites?</string>
     <string name="favorite_dialog_confirm_button_title">Confirm</string>
     <string name="favorite_dialog_dismiss_button_title">Dismiss</string>
+    <string name="icon_back_contentdesc">back</string>
+    <string name="details_description_title">Description</string>
+    <string name="iconicity_title">Iconicity value:</string>
+    <string name="collecting_institution_title">Location:</string>
+    <string name="image_rights_title">Image rights:</string>
+    <string name="image_dimensions_title">Dimensions:</string>
+    <string name="sale_status_title">Sale status:</string>
+    <string name="date_title">Date:</string>
+    <string name="no_data">No data</string>
+    <string name="medium_title">Medium:</string>
+    <string name="something_went_wrong">Something went wrong\n</string>
+    <string name="zoom_icon_contentdesc">zoom in</string>
+    <string name="close_icon_contentdesc">close</string>
+    <string name="unknown_artist">Unknown artist</string>
 </resources>

@@ -1,6 +1,7 @@
-package com.home.artz.model.repository
+package com.home.artz.model.repository.artwork
 
 import androidx.paging.Pager
+import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.Artwork
 
 interface IArtworkRepository {
