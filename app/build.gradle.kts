@@ -24,7 +24,7 @@ android {
     }
 
     buildTypes {
-        val appToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MDkxMDkwOTIsImlhdCI6MTcwODUwNDI5MiwiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZDViNGU0ZmZkMDhmMDAwZTI5OGQ1NSJ9.n-fP9LAJooXq7vOB37FSsUWX0kgMcIHVSHRBJTyjsPA"
+        val appToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MDk3MTM5NjcsImlhdCI6MTcwOTEwOTE2NywiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZGVlZmFmNDVjMTQ0MDAwZGVjNmJkYyJ9.CnaPmQWYB4SRqGUsNCiHEA-A7bTkWS8L_xWtxGziq44"
         debug {
             buildConfigField("String", "XAPPTOKEN", "\"$appToken\"")
         }
@@ -75,6 +75,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     implementation("androidx.compose.foundation:foundation:1.6.1")
+    implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Test
     testImplementation("junit:junit:4.13.2")
