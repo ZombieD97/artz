@@ -1,5 +1,6 @@
 package com.home.artz.view.details
 
+import android.graphics.Bitmap
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,17 +13,17 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -30,7 +31,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -54,34 +55,48 @@ import com.home.artz.view.ui.theme.White
 @Composable
 fun DetailsScreen(
     artwork: Artwork,
-    largeImage: MutableState<ImageBitmap?>,
+    largeImage: MutableState<Bitmap?>,
     onBackClicked: () -> Unit
 ) {
     val image = remember { largeImage }
     val showImageZoomScreen = remember {
         mutableStateOf(false)
     }
+    val showARScreen = remember {
+        mutableStateOf(false)
+    }
     val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
     val paddingSmall = dimensionResource(id = R.dimen.padding_small)
 
-    Column(
+    Scaffold(
         modifier = Modifier
             .fillMaxSize()
-            .background(MaterialTheme.colorScheme.background)
-            .navigationBarsPadding(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+            .background(MaterialTheme.colorScheme.background),
+        floatingActionButton = {
+            if (image.value != null) {
+                FloatingActionButton(
+                    onClick = { showARScreen.value = true },
+                    containerColor = Accent
+                ) {
+                    Icon(
+                        painterResource(id = R.drawable.icon_ar),
+                        stringResource(id = R.string.ar_icon_contentdesc),
+                        tint = White
+                    )
+                }
+            }
+        }
+    ) { contentPadding ->
         if (image.value != null) {
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .padding(bottom = contentPadding.calculateBottomPadding())
                     .verticalScroll(rememberScrollState())
             ) {
                 ConstraintLayout {
                     val (imageRef, imageDataRef) = createRefs()
                     Image(
-                        bitmap = image.value!!,
+                        bitmap = image.value!!.asImageBitmap(),
                         contentScale = ContentScale.FillWidth,
                         contentDescription = artwork.title,
                         modifier = Modifier
@@ -135,7 +150,6 @@ fun DetailsScreen(
                 }
                 Column(
                     modifier = Modifier
-                        .fillMaxSize()
                         .padding(paddingSmall)
                 ) {
                     Text(
@@ -228,9 +242,16 @@ fun DetailsScreen(
                         }
                     )
                 }
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.fab_padding)))
             }
         } else {
-            Loader()
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Loader()
+            }
         }
     }
 
@@ -286,13 +307,17 @@ fun DetailsScreen(
 
     if (showImageZoomScreen.value) {
         image.value?.let { imageToZoom ->
-            DetailsZoomScreen(image = imageToZoom) {
+            DetailsZoomScreen(image = imageToZoom.asImageBitmap()) {
                 showImageZoomScreen.value = false
             }
         }
     }
 
-    BackHandler {
-        if (showImageZoomScreen.value) showImageZoomScreen.value = false else onBackClicked.invoke()
+    if (showARScreen.value) {
+        image.value?.let { imageToShow ->
+            ARScreen(imageToShow) {
+                showARScreen.value = false
+            }
+        }
     }
 }

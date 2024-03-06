@@ -1,5 +1,7 @@
 package com.home.artz.viewmodel
 
+import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.annotation.StringRes
 import androidx.compose.runtime.State
@@ -8,11 +10,14 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.ar.core.Config
+import com.google.ar.core.Session
 import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.model.repository.artist.ArtistRepository
 import com.home.artz.model.repository.artwork.IArtworkRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -28,7 +33,7 @@ class ArtworkViewModel @Inject constructor(
 
     val cachedArtworks = mutableStateOf<List<Artwork>>(emptyList())
     var selectedArtwork = mutableStateOf<Artwork?>(null)
-    var selectedArtworkLargeImage = mutableStateOf<ImageBitmap?>(null)
+    var selectedArtworkLargeImage = mutableStateOf<Bitmap?>(null)
 
     @StringRes
     val userMessage = mutableStateOf<Int?>(null)
@@ -82,7 +87,7 @@ class ArtworkViewModel @Inject constructor(
                     withContext(Dispatchers.IO) {
                         try {
                             val url = URL(it)
-                            selectedArtworkLargeImage.value = BitmapFactory.decodeStream(url.openConnection().getInputStream()).asImageBitmap()
+                            selectedArtworkLargeImage.value = BitmapFactory.decodeStream(url.openConnection().getInputStream())
                         } catch (e: IOException) {
                             userMessage.value = R.string.something_went_wrong
                         }

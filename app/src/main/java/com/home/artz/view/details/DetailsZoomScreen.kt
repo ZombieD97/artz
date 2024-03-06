@@ -1,6 +1,7 @@
 package com.home.artz.view.details
 
 import android.content.res.Configuration
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -132,6 +133,10 @@ fun DetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
                     onCloseClicked.invoke()
                 }
         )
+    }
+
+    BackHandler {
+        onCloseClicked.invoke()
     }
 }
 

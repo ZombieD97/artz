@@ -15,20 +15,16 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavHostController
@@ -37,7 +33,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
 import com.home.artz.R
-import com.home.artz.view.ar.ARScreen
 import com.home.artz.view.details.DetailsScreen
 import com.home.artz.view.discover.DiscoverScreen
 import com.home.artz.view.favorite.FavoriteScreen
@@ -103,9 +98,6 @@ class MainActivity : ComponentActivity() {
                                                     artworkViewModel.loadNextPage()
                                                 })
                                         }
-                                        composable(Screen.HOME_AR.name) {
-                                            ARScreen()
-                                        }
                                         composable(Screen.HOME_SEARCH.name) {
                                             SearchScreen()
                                         }
@@ -151,7 +143,6 @@ fun BottomNavigationBar(navController: NavHostController) {
     }
     val navigationItems = listOf(
         MenuItem.Discover(),
-        MenuItem.AR(),
         MenuItem.Search(),
         MenuItem.Favorites()
     )

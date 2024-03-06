@@ -15,12 +15,6 @@ sealed class MenuItem(
         R.string.menuItem_discover_contentdesc
     )
 
-    class AR : MenuItem(
-        R.drawable.menu_item_ar,
-        Screen.HOME_AR,
-        R.string.menuItem_discover_contentdesc
-    )
-
     class Search : MenuItem(
         R.drawable.menu_item_search,
         Screen.HOME_SEARCH,
