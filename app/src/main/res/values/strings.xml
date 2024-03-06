@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">artz</string>
     <string name="menuItem_discover_contentdesc">Discover artworks</string>
-    <string name="menuItem_AR_contentdesc">Augmented reality</string>
     <string name="menuItem_search_contentdesc">Search</string>
     <string name="menuItem_favorites_contentdesc">Favorite artworks</string>
     <string name="favorite_icon_filled_contentdesc">delete artwork from favorites</string>
@@ -23,6 +22,9 @@
     <string name="medium_title">Medium:</string>
     <string name="something_went_wrong">Something went wrong\n</string>
     <string name="zoom_icon_contentdesc">zoom in</string>
+    <string name="ar_icon_contentdesc">Augmented reality</string>
     <string name="close_icon_contentdesc">close</string>
     <string name="unknown_artist">Unknown artist</string>
+    <string name="ar_searching_for_surface">Find a horizontal surface to place your artwork…</string>
+    <string name="ar_hide_help">Hide</string>
 </resources>
