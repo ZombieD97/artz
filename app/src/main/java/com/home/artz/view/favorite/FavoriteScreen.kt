@@ -3,7 +3,7 @@ package com.home.artz.view.favorite
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.runtime.Composable
 import com.home.artz.model.datamodel.Artwork
-import com.home.artz.view.main.ArtworkList
+import com.home.artz.view.ui.components.ArtworkList
 
 @Composable
 fun FavoriteScreen(

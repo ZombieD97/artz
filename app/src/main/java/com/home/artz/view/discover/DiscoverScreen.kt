@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
-import com.home.artz.view.main.ArtworkList
-import com.home.artz.view.main.Loader
+import com.home.artz.view.ui.components.ArtworkList
+import com.home.artz.view.ui.components.Loader
 
 @Composable
 fun DiscoverScreen(

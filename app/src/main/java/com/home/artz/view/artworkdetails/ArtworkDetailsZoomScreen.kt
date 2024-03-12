@@ -1,4 +1,4 @@
-package com.home.artz.view.details
+package com.home.artz.view.artworkdetails
 
 import android.content.res.Configuration
 import androidx.activity.compose.BackHandler
@@ -43,7 +43,7 @@ import com.home.artz.view.ui.theme.White
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun DetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
+fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
     var imageZoomScale by remember { mutableFloatStateOf(1f) }
     var imagePanOffset by remember { mutableStateOf(Offset.Zero) }
     val interactionSource = remember { MutableInteractionSource() }

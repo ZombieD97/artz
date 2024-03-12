@@ -1,23 +1,17 @@
 package com.home.artz.viewmodel
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import androidx.annotation.StringRes
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.asImageBitmap
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.ar.core.Config
-import com.google.ar.core.Session
 import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.model.repository.artist.ArtistRepository
 import com.home.artz.model.repository.artwork.IArtworkRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -101,7 +95,7 @@ class ArtworkViewModel @Inject constructor(
         userMessage.value = null
     }
 
-    fun loadNextPage() {
+    fun loadMoreArtworks() {
         _showPagingLoader.value = true
         fetchArtworks(false)
     }

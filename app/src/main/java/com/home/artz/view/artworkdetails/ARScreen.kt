@@ -1,4 +1,4 @@
-package com.home.artz.view.details
+package com.home.artz.view.artworkdetails
 
 import android.graphics.Bitmap
 import androidx.activity.compose.BackHandler

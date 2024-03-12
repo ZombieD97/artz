@@ -37,14 +37,3 @@ data class ArtworkUrl(
 data class ArtworkDimensions(@field:Json(name = "cm") val dimensions: MetricDimensions?)
 
 data class MetricDimensions(@field:Json(name = "text") val size: String?)
-
-fun appendImageVersion(imageUrl: String, version: ImageVersion) =
-    imageUrl.removeSuffix("{image_version}.jpg") + "${version.name.lowercase()}.jpg"
-
-fun String?.ifNullOrBlank(defaultValue: String): String {
-    return if (isNullOrBlank()) defaultValue else this
-}
-
-enum class ImageVersion {
-    MEDIUM, LARGE
-}
