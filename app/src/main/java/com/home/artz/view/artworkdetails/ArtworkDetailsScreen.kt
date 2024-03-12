@@ -1,7 +1,6 @@
-package com.home.artz.view.details
+package com.home.artz.view.artworkdetails
 
 import android.graphics.Bitmap
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -47,13 +46,13 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.model.datamodel.ifNullOrBlank
-import com.home.artz.view.main.Loader
+import com.home.artz.view.ui.components.Loader
 import com.home.artz.view.ui.theme.Accent
 import com.home.artz.view.ui.theme.Black50
 import com.home.artz.view.ui.theme.White
 
 @Composable
-fun DetailsScreen(
+fun ArtworkDetailsScreen(
     artwork: Artwork,
     largeImage: MutableState<Bitmap?>,
     onBackClicked: () -> Unit
@@ -307,7 +306,7 @@ fun DetailsScreen(
 
     if (showImageZoomScreen.value) {
         image.value?.let { imageToZoom ->
-            DetailsZoomScreen(image = imageToZoom.asImageBitmap()) {
+            ArtworkDetailsZoomScreen(image = imageToZoom.asImageBitmap()) {
                 showImageZoomScreen.value = false
             }
         }

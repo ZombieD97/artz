@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="padding_tiny">2dp</dimen>
     <dimen name="padding_small">4dp</dimen>
     <dimen name="padding_normal">8dp</dimen>
     <dimen name="padding_large">16dp</dimen>
@@ -10,4 +11,5 @@
     <dimen name="fully_rounded">44dp</dimen>
 
     <dimen name="artwork_title_size">32sp</dimen>
+    <dimen name="search_dropdown_text_size">20sp</dimen>
 </resources>

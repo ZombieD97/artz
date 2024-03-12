@@ -1,4 +1,4 @@
-package com.home.artz.view.main
+package com.home.artz.view.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
