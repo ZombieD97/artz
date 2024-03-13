@@ -42,6 +42,8 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -59,7 +61,7 @@ import coil.compose.AsyncImage
 import com.home.artz.R
 import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.SearchResult
-import com.home.artz.view.ui.components.ImageLoadingPlaceholder
+import com.home.artz.view.ui.components.AsyncImagePlaceholder
 import com.home.artz.view.ui.components.Loader
 import com.home.artz.view.ui.theme.GreenPrimary
 import com.home.artz.view.ui.theme.GreenSecondary
@@ -305,6 +307,8 @@ private fun ConstraintLayoutScope.PopularArtistList(
 ) {
     val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
     val configuration = LocalConfiguration.current
+    val context = LocalContext.current
+    val density = LocalDensity.current
     val imageSize = configuration.screenWidthDp * 0.45F
     val showLoader = remember {
         mutableStateOf(true)
@@ -328,10 +332,11 @@ private fun ConstraintLayoutScope.PopularArtistList(
                             AsyncImage(
                                 model = artist.links?.image?.squareImage,
                                 contentDescription = artist.name,
-                                placeholder = ImageLoadingPlaceholder(
+                                placeholder = AsyncImagePlaceholder(
                                     imageSize,
                                     imageSize,
                                 ),
+                                error = painterResource(id = R.drawable.icon_image_error_square),
                                 contentScale = ContentScale.Crop,
                                 modifier = Modifier
                                     .size(imageSize.dp)

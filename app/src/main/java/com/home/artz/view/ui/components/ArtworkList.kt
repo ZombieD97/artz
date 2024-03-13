@@ -29,6 +29,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -50,8 +51,15 @@ fun ArtworkList(
     val showFavoriteDialogForArtwork = rememberSaveable {
         mutableStateOf<Artwork?>(null)
     }
+    val hideFavoriteIcon = remember {
+        mutableStateOf(false)
+    }
     val scrollState = rememberLazyStaggeredGridState()
     val configuration = LocalConfiguration.current
+    val context = LocalContext.current
+    val defaultImageWidth = configuration.screenWidthDp * 0.5F
+    val defaultImageHeight = configuration.screenHeightDp * 0.3F
+    
     LazyVerticalStaggeredGrid(columns = StaggeredGridCells.Fixed(2),
         contentPadding = contentPadding,
         state = scrollState,
@@ -64,52 +72,54 @@ fun ArtworkList(
                     AsyncImage(
                         model = artworkUrl,
                         contentScale = ContentScale.Crop,
-                        placeholder = ImageLoadingPlaceholder(
-                            configuration.screenWidthDp * 0.4F,
-                            configuration.screenHeightDp * 0.3F
-                        ),
+                        placeholder = AsyncImagePlaceholder(defaultImageWidth, defaultImageHeight),
+                        error = painterResource(id = R.drawable.icon_image_error),
+                        onError = {
+                            hideFavoriteIcon.value = true
+                        },
                         contentDescription = artwork.title,
                         modifier = Modifier
                             .clickable { onArtworkClicked(artwork) }
                             .clip(RoundedCornerShape(dimensionResource(id = R.dimen.padding_normal)))
                     )
-
-                    val favoriteIcon: Int
-                    val favoriteIconContentdesc: Int
-                    if (!artwork.isFavorite) {
-                        favoriteIcon = R.drawable.icon_favorite
-                        favoriteIconContentdesc = R.string.favorite_icon_contentdesc
-                    } else {
-                        favoriteIcon = R.drawable.icon_favorite_filled
-                        favoriteIconContentdesc = R.string.favorite_icon_filled_contentdesc
-                    }
-                    val favoriteButtonPadding = dimensionResource(id = R.dimen.padding_normal)
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(top = favoriteButtonPadding, end = favoriteButtonPadding),
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        val interactionSource = remember { MutableInteractionSource() }
-                        Icon(
-                            tint = Accent,
-                            painter = painterResource(id = favoriteIcon),
-                            contentDescription = stringResource(favoriteIconContentdesc),
+                    if (!hideFavoriteIcon.value) {
+                        val favoriteIcon: Int
+                        val favoriteIconContentdesc: Int
+                        if (!artwork.isFavorite) {
+                            favoriteIcon = R.drawable.icon_favorite
+                            favoriteIconContentdesc = R.string.favorite_icon_contentdesc
+                        } else {
+                            favoriteIcon = R.drawable.icon_favorite_filled
+                            favoriteIconContentdesc = R.string.favorite_icon_filled_contentdesc
+                        }
+                        val favoriteButtonPadding = dimensionResource(id = R.dimen.padding_normal)
+                        Row(
                             modifier = Modifier
-                                .size(dimensionResource(id = R.dimen.favorite_icon_size))
-                                .background(Black50, CircleShape)
-                                .padding(dimensionResource(id = R.dimen.padding_small))
-                                .clickable(
-                                    interactionSource = interactionSource,
-                                    indication = null // Remove ripple effect
-                                ) {
-                                    if (!artwork.isFavorite) {
-                                        onFavoriteButtonClicked(artwork, true)
-                                    } else {
-                                        showFavoriteDialogForArtwork.value = artwork
+                                .fillMaxWidth()
+                                .padding(top = favoriteButtonPadding, end = favoriteButtonPadding),
+                            horizontalArrangement = Arrangement.End
+                        ) {
+                            val interactionSource = remember { MutableInteractionSource() }
+                            Icon(
+                                tint = Accent,
+                                painter = painterResource(id = favoriteIcon),
+                                contentDescription = stringResource(favoriteIconContentdesc),
+                                modifier = Modifier
+                                    .size(dimensionResource(id = R.dimen.favorite_icon_size))
+                                    .background(Black50, CircleShape)
+                                    .padding(dimensionResource(id = R.dimen.padding_small))
+                                    .clickable(
+                                        interactionSource = interactionSource,
+                                        indication = null // Remove ripple effect
+                                    ) {
+                                        if (!artwork.isFavorite) {
+                                            onFavoriteButtonClicked(artwork, true)
+                                        } else {
+                                            showFavoriteDialogForArtwork.value = artwork
+                                        }
                                     }
-                                }
-                        )
+                            )
+                        }
                     }
                 }
             }

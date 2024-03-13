@@ -5,11 +5,11 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.painter.Painter
 import com.home.artz.view.ui.theme.GreenSecondary
 
-class ImageLoadingPlaceholder(private val width: Float, private val height: Float) : Painter() {
+class AsyncImagePlaceholder(private val widthDp: Float, private val heightDp: Float) : Painter() {
     override val intrinsicSize: Size
         get() = Size(
-            width = width,
-            height = height
+            width = widthDp,
+            height = heightDp
         )
 
     override fun DrawScope.onDraw() {
