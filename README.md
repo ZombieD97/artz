@@ -2,6 +2,8 @@ A demo project using the Artsy API
 
 API docs: https://developers.artsy.net/
 
+Renew token: https://developers.artsy.net/v2/start
+
 Kanban board: https://trello.com/invite/b/N8MJqgra/ATTI5718766de9b98e64c41aada3948c2e93D6747968/artz
 
 App download: https://appcenter.ms/users/ZombieD/apps/Artz/
