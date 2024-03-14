@@ -24,7 +24,7 @@ android {
     }
 
     buildTypes {
-        val appToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MTAzMjM2MTMsImlhdCI6MTcwOTcxODgxMywiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZTgzZDFkMjY2NjRjMDAwZGQxNmVjMSJ9.A7Bk8M_oLgOhbcTZaN-xzhH49sYjy3dnZ5MvnJAwMWs"
+        val appToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MTA5NDM3MjYsImlhdCI6MTcxMDMzODkyNiwiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZjFiMzZlYzZmMDA2MDAwYjMzNzk5NyJ9.I48Bq7FiP4kPt-ORH3581sX240jNwTb8Qw2pvx7_05A"
         debug {
             buildConfigField("String", "XAPPTOKEN", "\"$appToken\"")
         }

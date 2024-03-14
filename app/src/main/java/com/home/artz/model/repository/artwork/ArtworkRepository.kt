@@ -1,22 +1,22 @@
 package com.home.artz.model.repository.artwork
 
 import com.home.artz.model.database.ArtzDatabase
-import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.model.datamodel.ImageVersion
 import com.home.artz.model.datamodel.appendImageVersion
 import com.home.artz.model.network.APIService
-import com.home.artz.model.repository.Constants
-import com.home.artz.model.repository.artist.ArtistRepository
-import com.home.artz.model.repository.artist.IArtistRepository
+import com.home.artz.model.Constants
+import com.home.artz.model.repository.base.BaseRepository
+import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class ArtworkRepository @Inject constructor(
     private val apiService: APIService,
-    private val database: ArtzDatabase
-) : IArtworkRepository {
+    private val database: ArtzDatabase,
+    moshi: Moshi
+) : BaseRepository(moshi), IArtworkRepository {
 
     private val ARTWORK_PAGE_SIZE = 30
     private var nextPageLink: String? = null
@@ -31,14 +31,15 @@ class ArtworkRepository @Inject constructor(
     }
 
     private suspend fun getArtworks(url: String): List<Artwork>? {
-        val response = apiService.getArtworks(url).body()
-        val artworks = response?.embeddedResponse?.artworks
-        return artworks?.let {
+        val response = handleRequest {
+            apiService.getArtworks(url)
+        }
+        return response?.embeddedResponse?.artworks?.let {
             nextPageLink = response.paginationLinks.nextPage.imageUrl
 
-            val favoriteArtworkIds = database.favoritesDao().getFavorites().map { it.id }
+            val favoriteArtworkIds = database.favoritesDao().getFavorites().map { favorite -> favorite.id }
 
-            return artworks.onEach { artwork ->
+            return it.onEach { artwork ->
                 artwork.isFavorite = favoriteArtworkIds.contains(artwork.id)
                 artwork.imageLinks.artworkUrl?.imageUrl?.let {
                     artwork.imageLinks.artworkUrl.mediumImage = appendImageVersion(it, ImageVersion.MEDIUM)

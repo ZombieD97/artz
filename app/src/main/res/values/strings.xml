@@ -25,7 +25,7 @@
     <string name="no_data">No data</string>
     <string name="unknown">Unknown</string>
     <string name="medium_title">Medium:</string>
-    <string name="something_went_wrong">Something went wrong\n</string>
+    <string name="something_went_wrong">Something went wrong</string>
     <string name="zoom_icon_contentdesc">zoom in</string>
     <string name="ar_icon_contentdesc">Augmented reality</string>
     <string name="close_icon_contentdesc">close</string>
@@ -37,4 +37,6 @@
     <string name="search_no_result">Artist cannot be found, try to modify the text</string>
     <string name="popular_artists_title">Popular artists</string>
     <string name="more_info">More info</string>
+    <string name="no_internet">No internet connection</string>
+    <string name="empty_list_contentdesc">The list is empty</string>
 </resources>

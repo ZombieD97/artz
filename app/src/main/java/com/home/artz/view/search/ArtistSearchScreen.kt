@@ -5,7 +5,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -42,8 +41,6 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -63,6 +60,7 @@ import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.SearchResult
 import com.home.artz.view.ui.components.AsyncImagePlaceholder
 import com.home.artz.view.ui.components.Loader
+import com.home.artz.view.ui.components.clickableWithoutRipple
 import com.home.artz.view.ui.theme.GreenPrimary
 import com.home.artz.view.ui.theme.GreenSecondary
 import com.home.artz.view.ui.theme.Tertiary
@@ -80,14 +78,10 @@ fun ArtistSearchScreen(
 ) {
     val focusRequester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
-    val interactionSource = remember { MutableInteractionSource() }
 
     ConstraintLayout(
         Modifier
-            .clickable(
-                interactionSource = interactionSource,
-                indication = null // Remove ripple effect
-            ) {
+            .clickableWithoutRipple {
                 focusManager.clearFocus()
             }
             .padding(contentPadding)
@@ -307,12 +301,7 @@ private fun ConstraintLayoutScope.PopularArtistList(
 ) {
     val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
     val configuration = LocalConfiguration.current
-    val context = LocalContext.current
-    val density = LocalDensity.current
     val imageSize = configuration.screenWidthDp * 0.45F
-    val showLoader = remember {
-        mutableStateOf(true)
-    }
     Column(
         modifier = Modifier
             .constrainAs(popularArtistsListRef) {
@@ -321,51 +310,63 @@ private fun ConstraintLayoutScope.PopularArtistList(
                 end.linkTo(parent.end)
                 bottom.linkTo(parent.bottom)
                 height = Dimension.fillToConstraints
-            }
+            },
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        popularArtists?.let { list ->
-            LazyVerticalGrid(
-                columns = GridCells.Fixed(2),
-                content = {
-                    itemsIndexed(list) { index, artist ->
-                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                            AsyncImage(
-                                model = artist.links?.image?.squareImage,
-                                contentDescription = artist.name,
-                                placeholder = AsyncImagePlaceholder(
-                                    imageSize,
-                                    imageSize,
-                                ),
-                                error = painterResource(id = R.drawable.icon_image_error_square),
-                                contentScale = ContentScale.Crop,
-                                modifier = Modifier
-                                    .size(imageSize.dp)
-                                    .clickable {
-                                        onPopularArtistClicked(artist)
-                                        inputText.value = null
-                                        onSearchCleared.invoke()
-                                    }
-                                    .clip(RoundedCornerShape(paddingNormal))
-                            )
-                            Text(text = artist.name, textAlign = TextAlign.Center)
+        when {
+            popularArtists == null -> {
+                Icon(
+                    tint = Tertiary,
+                    modifier = Modifier.size(dimensionResource(id = R.dimen.empty_list_icon_size)),
+                    painter = painterResource(id = R.drawable.empty_image_list_icon),
+                    contentDescription = stringResource(
+                        id = R.string.empty_list_contentdesc
+                    )
+                )
+            }
+            popularArtists.isEmpty() -> {
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Loader()
+                }
+            }
+            else -> {
+                LazyVerticalGrid(
+                    columns = GridCells.Fixed(2),
+                    content = {
+                        itemsIndexed(popularArtists) { index, artist ->
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                AsyncImage(
+                                    model = artist.links?.image?.squareImage,
+                                    contentDescription = artist.name,
+                                    placeholder = AsyncImagePlaceholder(
+                                        imageSize,
+                                        imageSize,
+                                    ),
+                                    error = painterResource(id = R.drawable.icon_image_error_square),
+                                    contentScale = ContentScale.Crop,
+                                    modifier = Modifier
+                                        .size(imageSize.dp)
+                                        .clickable {
+                                            onPopularArtistClicked(artist)
+                                            inputText.value = null
+                                            onSearchCleared.invoke()
+                                        }
+                                        .clip(RoundedCornerShape(paddingNormal))
+                                )
+                                Text(text = artist.name, textAlign = TextAlign.Center)
+                            }
                         }
-                        if (index == list.lastIndex) showLoader.value = false
-                    }
-                },
-                contentPadding = PaddingValues(bottom = paddingNormal, top = paddingNormal),
-                verticalArrangement = Arrangement.spacedBy(paddingNormal),
-                horizontalArrangement = Arrangement.spacedBy(paddingNormal)
-            )
-        }
-    }
-
-    if (showLoader.value) {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Loader()
+                    },
+                    contentPadding = PaddingValues(bottom = paddingNormal, top = paddingNormal),
+                    verticalArrangement = Arrangement.spacedBy(paddingNormal),
+                    horizontalArrangement = Arrangement.spacedBy(paddingNormal)
+                )
+            }
         }
     }
 }

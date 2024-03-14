@@ -5,11 +5,8 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.rememberTransformableState
 import androidx.compose.foundation.gestures.transformable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -37,6 +34,8 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.home.artz.R
+import com.home.artz.view.ui.components.clickableWithoutRipple
+import com.home.artz.view.ui.components.combinedClickableWithoutRipple
 import com.home.artz.view.ui.theme.Black50
 import com.home.artz.view.ui.theme.Black95
 import com.home.artz.view.ui.theme.White
@@ -46,7 +45,6 @@ import com.home.artz.view.ui.theme.White
 fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
     var imageZoomScale by remember { mutableFloatStateOf(1f) }
     var imagePanOffset by remember { mutableStateOf(Offset.Zero) }
-    val interactionSource = remember { MutableInteractionSource() }
     val detailsIconsPadding = dimensionResource(id = R.dimen.padding_normal)
     val config = LocalConfiguration.current
 
@@ -54,9 +52,7 @@ fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize()
-            .combinedClickable(
-                interactionSource = interactionSource,
-                indication = null,
+            .combinedClickableWithoutRipple(
                 onDoubleClick = {
                     // reset zoom
                     imageZoomScale = 1f
@@ -126,10 +122,7 @@ fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
                 .size(dimensionResource(id = R.dimen.details_icons_size))
                 .background(Black50, CircleShape)
                 .padding(dimensionResource(id = R.dimen.padding_small))
-                .clickable(
-                    interactionSource = interactionSource,
-                    indication = null // Remove ripple effect
-                ) {
+                .clickableWithoutRipple {
                     onCloseClicked.invoke()
                 }
         )

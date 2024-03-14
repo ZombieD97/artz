@@ -1,10 +1,8 @@
 package com.home.artz.model.datamodel
 
-import android.content.Context
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.home.artz.R
 import com.squareup.moshi.Json
 
 @Entity("FavoriteArtworks")

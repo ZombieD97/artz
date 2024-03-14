@@ -5,28 +5,38 @@ import com.home.artz.model.datamodel.ImageVersion
 import com.home.artz.model.datamodel.SearchResult
 import com.home.artz.model.datamodel.appendImageVersion
 import com.home.artz.model.network.APIService
+import com.home.artz.model.repository.base.BaseRepository
+import com.squareup.moshi.Moshi
 import javax.inject.Inject
 
 class ArtistRepository @Inject constructor(
-    private var apiService: APIService
-) : IArtistRepository {
+    private var apiService: APIService,
+    moshi: Moshi
+) : BaseRepository(moshi), IArtistRepository {
 
     override suspend fun getArtistsBy(artworkId: String): List<Artist>? {
-        val artists = apiService.getArtistsBy(artworkId).body()?.embeddedResponse?.artists
+        val artists = handleRequest {
+            apiService.getArtistsBy(artworkId)
+        }?.embeddedResponse?.artists
         artists?.onEach { artist ->
-            artist.links?.image?.squareImage = appendImageVersion(artist.links?.image?.url, ImageVersion.SQUARE)
+            artist.links?.image?.squareImage =
+                appendImageVersion(artist.links?.image?.url, ImageVersion.SQUARE)
         }
         return artists
     }
 
     override suspend fun getArtist(url: String): Artist? {
-        val artist = apiService.getArtist(url).body()
-        artist?.links?.image?.squareImage = appendImageVersion(artist?.links?.image?.url, ImageVersion.SQUARE)
+        val artist = handleRequest {
+            apiService.getArtist(url)
+        }
+        artist?.links?.image?.squareImage =
+            appendImageVersion(artist?.links?.image?.url, ImageVersion.SQUARE)
         return artist
     }
 
     override suspend fun searchArtists(searchText: String): List<SearchResult>? {
-        val results = apiService.searchArtists(searchText).body()?.embeddedResponse?.results
+        val results =
+            handleRequest { apiService.searchArtists(searchText) }?.embeddedResponse?.results
         return results?.filter { it.type == "artist" }
     }
 }

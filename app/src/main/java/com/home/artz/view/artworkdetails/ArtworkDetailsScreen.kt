@@ -3,8 +3,6 @@ package com.home.artz.view.artworkdetails
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -47,6 +45,7 @@ import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.model.datamodel.ifNullOrBlank
 import com.home.artz.view.ui.components.Loader
+import com.home.artz.view.ui.components.clickableWithoutRipple
 import com.home.artz.view.ui.theme.Accent
 import com.home.artz.view.ui.theme.Black50
 import com.home.artz.view.ui.theme.White
@@ -258,14 +257,13 @@ fun ArtworkDetailsScreen(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
             .fillMaxWidth()
+            .statusBarsPadding()
             .padding(
                 start = paddingNormal,
                 top = paddingNormal,
                 end = paddingNormal
             )
-            .statusBarsPadding()
     ) {
-        val interactionSource = remember { MutableInteractionSource() }
         Icon(
             tint = White,
             painter = painterResource(id = R.drawable.icon_back),
@@ -276,10 +274,7 @@ fun ArtworkDetailsScreen(
                 .size(dimensionResource(id = R.dimen.details_icons_size))
                 .background(Black50, CircleShape)
                 .padding(paddingSmall)
-                .clickable(
-                    interactionSource = interactionSource,
-                    indication = null // Remove ripple effect
-                ) {
+                .clickableWithoutRipple {
                     onBackClicked.invoke()
                 }
         )
@@ -294,10 +289,7 @@ fun ArtworkDetailsScreen(
                     .size(dimensionResource(id = R.dimen.details_icons_size))
                     .background(Black50, CircleShape)
                     .padding(paddingSmall)
-                    .clickable(
-                        interactionSource = interactionSource,
-                        indication = null // Remove ripple effect
-                    ) {
+                    .clickableWithoutRipple {
                         showImageZoomScreen.value = true
                     }
             )

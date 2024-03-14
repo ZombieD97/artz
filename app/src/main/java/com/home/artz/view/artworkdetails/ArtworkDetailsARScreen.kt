@@ -4,7 +4,6 @@ import android.graphics.Bitmap
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,6 +30,7 @@ import androidx.compose.ui.res.stringResource
 import com.google.ar.core.Frame
 import com.google.ar.core.TrackingFailureReason
 import com.home.artz.R
+import com.home.artz.view.ui.components.clickableWithoutRipple
 import com.home.artz.view.ui.theme.Accent
 import com.home.artz.view.ui.theme.Black50
 import com.home.artz.view.ui.theme.White
@@ -103,7 +103,6 @@ fun ARScreen(image: Bitmap, onBackClicked: () -> Unit) {
                 )
                 .statusBarsPadding()
         ) {
-            val interactionSource = remember { MutableInteractionSource() }
             Icon(
                 tint = White,
                 painter = painterResource(id = R.drawable.icon_back),
@@ -114,10 +113,7 @@ fun ARScreen(image: Bitmap, onBackClicked: () -> Unit) {
                     .size(dimensionResource(id = R.dimen.details_icons_size))
                     .background(Black50, CircleShape)
                     .padding(dimensionResource(id = R.dimen.padding_small))
-                    .clickable(
-                        interactionSource = interactionSource,
-                        indication = null // Remove ripple effect
-                    ) {
+                    .clickableWithoutRipple {
                         onBackClicked.invoke()
                     }
             )
