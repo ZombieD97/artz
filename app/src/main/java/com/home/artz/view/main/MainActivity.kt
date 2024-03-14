@@ -126,8 +126,7 @@ class MainActivity : ComponentActivity() {
                                             )
                                         }
                                         composable(Screen.HOME_FAVORITES.name) {
-                                            val favorites = artworks.value.filter { it.isFavorite }
-                                            FavoriteScreen(favorites,
+                                            FavoriteScreen(artworkViewModel.favoriteArtworks,
                                                 contentPadding,
                                                 { index ->
                                                     artworkViewModel.setSelectedArtwork(index)
@@ -161,6 +160,7 @@ class MainActivity : ComponentActivity() {
                             }
                         }
                     })
+
                 artworkViewModel.userMessage.value?.let {
                     UserMessage(message = it)
                     artworkViewModel.clearUserMessage()

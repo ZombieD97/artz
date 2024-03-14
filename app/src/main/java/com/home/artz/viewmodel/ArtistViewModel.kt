@@ -1,19 +1,19 @@
 package com.home.artz.viewmodel
 
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.SearchResult
-import com.home.artz.model.repository.artist.ArtistRepository
+import com.home.artz.model.repository.artist.IArtistRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class ArtistViewModel @Inject constructor(
-    private val artistRepository: ArtistRepository
-) : ViewModel() {
+    private val artistRepository: IArtistRepository
+) : BaseViewModel(artistRepository) {
 
     var selectedArtist = mutableStateOf<Artist?>(null)
     val searchResults = mutableStateOf<List<SearchResult>?>(null)
@@ -40,7 +40,7 @@ class ArtistViewModel @Inject constructor(
                         ?.let { artists.add(it) }
                 }
             }
-            popularArtists.value = artists
+            popularArtists.value = artists.ifEmpty { null }
         }
     }
 

@@ -2,11 +2,9 @@ package com.home.artz.view.artistdetails
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -38,7 +36,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
@@ -47,11 +44,11 @@ import com.home.artz.R
 import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.ArtistUrl
 import com.home.artz.model.datamodel.ifNullOrBlank
-import com.home.artz.view.ui.components.ImageLoadingPlaceholder
+import com.home.artz.view.ui.components.AsyncImagePlaceholder
 import com.home.artz.view.ui.components.Loader
+import com.home.artz.view.ui.components.clickableWithoutRipple
 import com.home.artz.view.ui.theme.Black50
 import com.home.artz.view.ui.theme.Blue
-import com.home.artz.view.ui.theme.GreenSecondary
 import com.home.artz.view.ui.theme.White
 
 @Composable
@@ -114,7 +111,8 @@ private fun ArtistBaseInformation(artist: Artist) {
             model = artist.links?.image?.squareImage,
             contentDescription = artist.name,
             contentScale = ContentScale.FillWidth,
-            placeholder = ImageLoadingPlaceholder(imageSize, imageSize),
+            placeholder = AsyncImagePlaceholder(imageSize, imageSize),
+            error = painterResource(id = R.drawable.icon_image_error_square),
             modifier = Modifier
                 .fillMaxWidth()
                 .constrainAs(imageRef) {
@@ -253,7 +251,6 @@ private fun BackButton(onBackClicked: () -> Unit) {
                 end = paddingNormal
             )
     ) {
-        val interactionSource = remember { MutableInteractionSource() }
         Icon(
             tint = White,
             painter = painterResource(id = R.drawable.icon_back),
@@ -264,10 +261,7 @@ private fun BackButton(onBackClicked: () -> Unit) {
                 .size(dimensionResource(id = R.dimen.details_icons_size))
                 .background(Black50, CircleShape)
                 .padding(paddingSmall)
-                .clickable(
-                    interactionSource = interactionSource,
-                    indication = null // Remove ripple effect
-                ) {
+                .clickableWithoutRipple {
                     onBackClicked.invoke()
                 }
         )

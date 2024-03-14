@@ -1,4 +1,4 @@
-package com.home.artz.model.repository
+package com.home.artz.model
 
 class Constants {
     companion object {
