@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import com.home.artz.R
 
 sealed class MenuItem(
-    @DrawableRes var selectedIcon: Int,
+    @DrawableRes var icon: Int,
     var screen: Screen,
     @StringRes var contentDesc: Int
 ) {
