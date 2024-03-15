@@ -1,5 +1,6 @@
 package com.home.artz.view.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -183,12 +184,16 @@ private fun StaggeredArtworkGrid(
         }
     )
     if (onScrollEnded != null) {
-        val isScrollEnded = remember {
-            mutableStateOf(false)
+        val previousCanForwardScroll = remember {
+            mutableStateOf(true)
         }
-        isScrollEnded.value =
-            !scrollState.canScrollForward && scrollState.canScrollBackward && scrollState.firstVisibleItemIndex != 0
-        if (isScrollEnded.value) onScrollEnded.invoke()
+        val isScrollEnded =
+            scrollState.canScrollForward != previousCanForwardScroll.value && //Stop scrollState being changed multiple times, with the same value
+                    !scrollState.canScrollForward && //Reached the end of the current page
+                    scrollState.canScrollBackward && // so the user can scroll back, but not forward
+                    scrollState.firstVisibleItemIndex != 0 //We are not at the initial state
+        if (isScrollEnded) onScrollEnded.invoke()
+        previousCanForwardScroll.value = scrollState.canScrollForward
     }
     if (showFavoriteDialogForArtwork.value != null) {
         FavoriteRemoveConfirmDialog(showFavoriteDialogForArtwork) {
