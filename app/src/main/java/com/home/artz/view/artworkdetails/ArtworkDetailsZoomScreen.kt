@@ -40,7 +40,6 @@ import com.home.artz.view.ui.theme.Black50
 import com.home.artz.view.ui.theme.Black95
 import com.home.artz.view.ui.theme.White
 
-@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
     var imageZoomScale by remember { mutableFloatStateOf(1f) }
