@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -19,10 +20,7 @@ import androidx.compose.foundation.lazy.staggeredgrid.items
 import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -114,66 +112,21 @@ private fun StaggeredArtworkGrid(
         modifier = Modifier.fillMaxSize(),
         content = {
             items(artworks) { artwork ->
-                artwork.imageLinks.artworkUrl?.mediumImage.let { artworkUrl ->
-                    AsyncImage(
-                        model = artworkUrl,
-                        contentScale = ContentScale.Crop,
-                        placeholder = AsyncImagePlaceholder(
-                            defaultImageWidth,
-                            defaultImageHeight
-                        ),
-                        error = painterResource(id = R.drawable.icon_image_error),
-                        contentDescription = artwork.title,
-                        modifier = Modifier
-                            .clickable {
-                                onArtworkClicked(
-                                    artwork
-                                )
-                            }
-                            .clip(RoundedCornerShape(dimensionResource(id = R.dimen.padding_normal)))
+                artwork.links.imageLinks?.mediumImage.let { artworkUrl ->
+                    ArtworkListItem(
+                        artworkImageUrl = artworkUrl,
+                        defaultImageWidth = defaultImageWidth,
+                        defaultImageHeight = defaultImageHeight,
+                        artwork = artwork,
+                        onArtworkClicked = onArtworkClicked,
+                        onFavoriteButtonClicked = onFavoriteButtonClicked,
+                        showFavoriteDialogForArtwork = showFavoriteDialogForArtwork
                     )
-                    val favoriteIcon: Int
-                    val favoriteIconContentdesc: Int
-                    if (!artwork.isFavorite) {
-                        favoriteIcon = R.drawable.icon_favorite
-                        favoriteIconContentdesc = R.string.favorite_icon_contentdesc
-                    } else {
-                        favoriteIcon = R.drawable.icon_favorite_filled
-                        favoriteIconContentdesc =
-                            R.string.favorite_icon_filled_contentdesc
-                    }
-                    val favoriteButtonPadding =
-                        dimensionResource(id = R.dimen.padding_normal)
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(
-                                top = favoriteButtonPadding,
-                                end = favoriteButtonPadding
-                            ),
-                        horizontalArrangement = Arrangement.End
-                    ) {
-                        Icon(
-                            tint = Accent,
-                            painter = painterResource(id = favoriteIcon),
-                            contentDescription = stringResource(favoriteIconContentdesc),
-                            modifier = Modifier
-                                .size(dimensionResource(id = R.dimen.favorite_icon_size))
-                                .background(Black50, CircleShape)
-                                .padding(dimensionResource(id = R.dimen.padding_small))
-                                .clickableWithoutRipple {
-                                    if (!artwork.isFavorite) {
-                                        onFavoriteButtonClicked(artwork, true)
-                                    } else {
-                                        showFavoriteDialogForArtwork.value = artwork
-                                    }
-                                }
-                        )
-                    }
                 }
             }
         }
     )
+
     if (onScrollEnded != null) {
         val previousCanForwardScroll = remember {
             mutableStateOf(true)
@@ -186,8 +139,83 @@ private fun StaggeredArtworkGrid(
         if (isScrollEnded) onScrollEnded.invoke()
         previousCanForwardScroll.value = scrollState.canScrollForward
     }
+
     FavoriteArtworkRemoveDialog(showFavoriteDialogForArtwork) {
         onFavoriteButtonClicked(it, false)
+    }
+}
+
+@Composable
+private fun ArtworkListItem(
+    artworkImageUrl: String?,
+    defaultImageWidth: Float,
+    defaultImageHeight: Float,
+    artwork: Artwork,
+    onArtworkClicked: (Artwork) -> Unit,
+    onFavoriteButtonClicked: (Artwork, Boolean) -> Unit,
+    showFavoriteDialogForArtwork: MutableState<Artwork?>
+) {
+    val paddingSmall = dimensionResource(id = R.dimen.padding_small)
+    AsyncImage(
+        model = artworkImageUrl,
+        contentScale = ContentScale.Crop,
+        placeholder = AsyncImagePlaceholder(
+            defaultImageWidth,
+            defaultImageHeight
+        ),
+        error = painterResource(id = R.drawable.icon_image_error),
+        contentDescription = artwork.title,
+        modifier = Modifier
+            .clickable {
+                onArtworkClicked(
+                    artwork
+                )
+            }
+            .clip(RoundedCornerShape(dimensionResource(id = R.dimen.padding_normal)))
+    )
+    val favoriteIcon: Int
+    val favoriteIconContentdesc: Int
+    if (!artwork.isFavorite) {
+        favoriteIcon = R.drawable.icon_favorite
+        favoriteIconContentdesc = R.string.favorite_icon_contentdesc
+    } else {
+        favoriteIcon = R.drawable.icon_favorite_filled
+        favoriteIconContentdesc =
+            R.string.favorite_icon_filled_contentdesc
+    }
+    val favoriteButtonPadding =
+        dimensionResource(id = R.dimen.padding_normal)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                top = favoriteButtonPadding,
+                end = favoriteButtonPadding
+            ),
+        horizontalArrangement = Arrangement.End
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxHeight()
+                .clickableWithoutRipple {
+                    if (!artwork.isFavorite) {
+                        onFavoriteButtonClicked(artwork, true)
+                    } else {
+                        showFavoriteDialogForArtwork.value = artwork
+                    }
+                }
+        )
+        {
+            Icon(
+                tint = Accent,
+                painter = painterResource(id = favoriteIcon),
+                contentDescription = stringResource(favoriteIconContentdesc),
+                modifier = Modifier
+                    .size(dimensionResource(id = R.dimen.favorite_icon_size))
+                    .background(Black50, CircleShape)
+                    .padding(paddingSmall)
+            )
+        }
     }
 }
 

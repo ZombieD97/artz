@@ -34,22 +34,26 @@ class ArtworkRepository @Inject constructor(
         val response = handleRequest {
             apiService.getArtworks(url)
         }
-        return response?.embeddedResponse?.artworks?.let {
+        return response?.embeddedResponse?.artworks?.let { artworks ->
             nextPageLink = response.paginationLinks.nextPage.imageUrl
 
-            val favoriteArtworkIds = database.favoritesDao().getFavorites().map { favorite -> favorite.id }
+            val favoriteArtworkIds = getFavoriteArtworks().map { favorite -> favorite.id }
 
-            return it.onEach { artwork ->
+            return artworks.onEach { artwork ->
                 artwork.isFavorite = favoriteArtworkIds.contains(artwork.id)
-                artwork.imageLinks.artworkUrl?.imageUrl?.let {
-                    artwork.imageLinks.artworkUrl.mediumImage = appendImageVersion(it, ImageVersion.MEDIUM)
-                    artwork.imageLinks.artworkUrl.largeImageUrl = appendImageVersion(it, ImageVersion.LARGE)
+                artwork.links.imageLinks?.imageUrl?.let { imageUrl ->
+                    artwork.links.imageLinks.mediumImage = appendImageVersion(imageUrl, ImageVersion.MEDIUM)
+                    artwork.links.imageLinks.largeImageUrl = appendImageVersion(imageUrl, ImageVersion.LARGE)
                 }
             }
         }
     }
 
-    override suspend fun addToFavorites(artwork: Artwork) {
+    override suspend fun getFavoriteArtworks(): List<Artwork> {
+        return database.favoritesDao().getFavorites()
+    }
+
+    override suspend fun saveToFavorites(artwork: Artwork) {
         withContext(Dispatchers.IO) {
             database.favoritesDao().insert(artwork)
         }

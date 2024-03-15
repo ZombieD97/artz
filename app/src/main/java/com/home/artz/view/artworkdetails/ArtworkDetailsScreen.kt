@@ -360,9 +360,9 @@ private fun ConstraintLayoutScope.ArtworkBaseInformation(
     artwork: Artwork
 ) {
     var artists = ""
-    artwork.artists?.forEachIndexed { index, artist ->
+    artwork.creators?.forEachIndexed { index, artist ->
         artists += artist.name
-        if (index != artwork.artists!!.lastIndex) artists += ", "
+        if (index != artwork.creators!!.lastIndex) artists += ", "
     }
     val paddingSmall = dimensionResource(id = R.dimen.padding_small)
     val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
