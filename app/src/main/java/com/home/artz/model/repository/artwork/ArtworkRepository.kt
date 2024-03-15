@@ -6,6 +6,7 @@ import com.home.artz.model.datamodel.ImageVersion
 import com.home.artz.model.datamodel.appendImageVersion
 import com.home.artz.model.network.APIService
 import com.home.artz.model.Constants
+import com.home.artz.model.Constants.Companion.ARTWORK_PAGE_SIZE
 import com.home.artz.model.repository.base.BaseRepository
 import com.squareup.moshi.Moshi
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +19,6 @@ class ArtworkRepository @Inject constructor(
     moshi: Moshi
 ) : BaseRepository(moshi), IArtworkRepository {
 
-    private val ARTWORK_PAGE_SIZE = 30
     private var nextPageLink: String? = null
 
     override suspend fun fetchArtworks(init: Boolean): List<Artwork>? {

@@ -1,6 +1,5 @@
 package com.home.artz.view.ui.components
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -55,7 +54,7 @@ fun ArtworkList(
 ) {
     val padding = PaddingValues(
         top = dimensionResource(id = R.dimen.statusbar_padding),
-        bottom = contentPadding.calculateBottomPadding(),
+        bottom = contentPadding.calculateBottomPadding() + dimensionResource(id = R.dimen.padding_normal),
         start = contentPadding.calculateStartPadding(LayoutDirection.Rtl),
         end = contentPadding.calculateEndPadding(LayoutDirection.Rtl)
     )
@@ -103,9 +102,6 @@ private fun StaggeredArtworkGrid(
     val showFavoriteDialogForArtwork = rememberSaveable {
         mutableStateOf<Artwork?>(null)
     }
-    val hasImageError = remember {
-        mutableStateOf(false)
-    }
     val scrollState = rememberLazyStaggeredGridState()
     val configuration = LocalConfiguration.current
     val defaultImageWidth = configuration.screenWidthDp * 0.5F
@@ -127,57 +123,52 @@ private fun StaggeredArtworkGrid(
                             defaultImageHeight
                         ),
                         error = painterResource(id = R.drawable.icon_image_error),
-                        onError = {
-                            hasImageError.value = true
-                        },
                         contentDescription = artwork.title,
                         modifier = Modifier
-                            .clickable(enabled = !hasImageError.value) {
+                            .clickable {
                                 onArtworkClicked(
                                     artwork
                                 )
                             }
                             .clip(RoundedCornerShape(dimensionResource(id = R.dimen.padding_normal)))
                     )
-                    if (!hasImageError.value) {
-                        val favoriteIcon: Int
-                        val favoriteIconContentdesc: Int
-                        if (!artwork.isFavorite) {
-                            favoriteIcon = R.drawable.icon_favorite
-                            favoriteIconContentdesc = R.string.favorite_icon_contentdesc
-                        } else {
-                            favoriteIcon = R.drawable.icon_favorite_filled
-                            favoriteIconContentdesc =
-                                R.string.favorite_icon_filled_contentdesc
-                        }
-                        val favoriteButtonPadding =
-                            dimensionResource(id = R.dimen.padding_normal)
-                        Row(
+                    val favoriteIcon: Int
+                    val favoriteIconContentdesc: Int
+                    if (!artwork.isFavorite) {
+                        favoriteIcon = R.drawable.icon_favorite
+                        favoriteIconContentdesc = R.string.favorite_icon_contentdesc
+                    } else {
+                        favoriteIcon = R.drawable.icon_favorite_filled
+                        favoriteIconContentdesc =
+                            R.string.favorite_icon_filled_contentdesc
+                    }
+                    val favoriteButtonPadding =
+                        dimensionResource(id = R.dimen.padding_normal)
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(
+                                top = favoriteButtonPadding,
+                                end = favoriteButtonPadding
+                            ),
+                        horizontalArrangement = Arrangement.End
+                    ) {
+                        Icon(
+                            tint = Accent,
+                            painter = painterResource(id = favoriteIcon),
+                            contentDescription = stringResource(favoriteIconContentdesc),
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .padding(
-                                    top = favoriteButtonPadding,
-                                    end = favoriteButtonPadding
-                                ),
-                            horizontalArrangement = Arrangement.End
-                        ) {
-                            Icon(
-                                tint = Accent,
-                                painter = painterResource(id = favoriteIcon),
-                                contentDescription = stringResource(favoriteIconContentdesc),
-                                modifier = Modifier
-                                    .size(dimensionResource(id = R.dimen.favorite_icon_size))
-                                    .background(Black50, CircleShape)
-                                    .padding(dimensionResource(id = R.dimen.padding_small))
-                                    .clickableWithoutRipple {
-                                        if (!artwork.isFavorite) {
-                                            onFavoriteButtonClicked(artwork, true)
-                                        } else {
-                                            showFavoriteDialogForArtwork.value = artwork
-                                        }
+                                .size(dimensionResource(id = R.dimen.favorite_icon_size))
+                                .background(Black50, CircleShape)
+                                .padding(dimensionResource(id = R.dimen.padding_small))
+                                .clickableWithoutRipple {
+                                    if (!artwork.isFavorite) {
+                                        onFavoriteButtonClicked(artwork, true)
+                                    } else {
+                                        showFavoriteDialogForArtwork.value = artwork
                                     }
-                            )
-                        }
+                                }
+                        )
                     }
                 }
             }
