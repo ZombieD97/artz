@@ -15,6 +15,7 @@ val Background_Less_Dark = Color(0xFF202020)
 val Surface_Dark = Color(0xFF000000)
 
 val Black50 = Color(0x80000000)
+val Black70 = Color(0xB3000000)
 val Black95 = Color(0xF2000000)
 val White = Color(0xFFE9E9E9)
 val Blue = Color(0xFF2196F3)

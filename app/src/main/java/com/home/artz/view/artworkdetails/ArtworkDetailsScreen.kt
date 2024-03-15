@@ -1,6 +1,10 @@
 package com.home.artz.view.artworkdetails
 
 import android.graphics.Bitmap
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -42,7 +46,9 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
+import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.ConstraintLayoutScope
 import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.model.datamodel.ifNullOrBlank
@@ -51,6 +57,7 @@ import com.home.artz.view.ui.components.Loader
 import com.home.artz.view.ui.components.clickableWithoutRipple
 import com.home.artz.view.ui.theme.Accent
 import com.home.artz.view.ui.theme.Black50
+import com.home.artz.view.ui.theme.Black70
 import com.home.artz.view.ui.theme.White
 
 @Composable
@@ -67,15 +74,13 @@ fun ArtworkDetailsScreen(
     val showARScreen = remember {
         mutableStateOf(false)
     }
-    val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
-    val paddingSmall = dimensionResource(id = R.dimen.padding_small)
 
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
             .background(MaterialTheme.colorScheme.background),
         floatingActionButton = {
-            if (image.value != null) {
+            image.value?.let {
                 FloatingActionButton(
                     onClick = { showARScreen.value = true },
                     containerColor = Accent
@@ -95,8 +100,10 @@ fun ArtworkDetailsScreen(
                     .padding(bottom = contentPadding.calculateBottomPadding())
                     .verticalScroll(rememberScrollState())
             ) {
-                ConstraintLayout {
-                    val (imageRef, imageDataRef) = createRefs()
+                ConstraintLayout(
+                    modifier = Modifier.background(MaterialTheme.colorScheme.inverseSurface)
+                ) {
+                    val (imageRef, artworkBaseInformationRef, headerRef) = createRefs()
                     Image(
                         bitmap = image.value!!.asImageBitmap(),
                         contentScale = ContentScale.FillWidth,
@@ -105,145 +112,21 @@ fun ArtworkDetailsScreen(
                             .fillMaxWidth()
                             .constrainAs(imageRef) {}
                     )
-
-                    var artists = ""
-                    artwork.artists?.forEachIndexed { index, artist ->
-                        artists += artist.name
-                        if (index != artwork.artists!!.lastIndex) artists += ", "
-                    }
-                    Column(
-                        modifier = Modifier
-                            .constrainAs(imageDataRef) {
-                                start.linkTo(parent.start)
-                                end.linkTo(parent.end)
-                                bottom.linkTo(parent.bottom)
-                            }
-                            .padding(
-                                start = paddingSmall,
-                                end = paddingSmall,
-                                bottom = paddingSmall
-                            )
-                            .fillMaxWidth()
-                    ) {
-                        Text(
-                            text = artwork.title,
-                            color = White,
-                            fontSize = dimensionResource(id = R.dimen.artwork_title_size).value.sp,
-                            fontFamily = FontFamily(
-                                Font(
-                                    R.font.italianno_regular,
-                                    FontWeight.Normal
-                                )
-                            ),
-                            modifier = Modifier
-                                .background(Black50, RoundedCornerShape(paddingNormal))
-                                .padding(start = paddingNormal, end = paddingNormal)
-                        )
-                        Spacer(modifier = Modifier.height(paddingSmall))
-                        Text(
-                            text = artists.ifBlank { stringResource(id = R.string.unknown_artist) },
-                            color = White,
-                            fontWeight = FontWeight.Light,
-                            modifier = Modifier
-                                .background(Black50, RoundedCornerShape(paddingNormal))
-                                .padding(start = paddingNormal, end = paddingNormal)
-                        )
-                    }
-                }
-                Column(
-                    modifier = Modifier
-                        .padding(paddingSmall)
-                ) {
-                    Text(
-                        color = MaterialTheme.colorScheme.inverseSurface,
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(stringResource(id = R.string.collecting_institution_title))
-                            }
-                            append(
-                                " ${
-                                    artwork.collectingInstitution.ifNullOrBlank(stringResource(id = R.string.no_data))
-                                }"
-                            )
-                        }
+                    ArtworkBaseInformation(
+                        artworkBaseInformationRef = artworkBaseInformationRef,
+                        headerRef = headerRef,
+                        artwork = artwork
                     )
-                    Text(
-                        color = MaterialTheme.colorScheme.inverseSurface,
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(stringResource(id = R.string.image_rights_title))
-                            }
-                            append(
-                                " ${
-                                    artwork.imageRights.ifNullOrBlank(stringResource(id = R.string.no_data))
-                                }"
-                            )
-                        }
-                    )
-                    Text(
-                        color = MaterialTheme.colorScheme.inverseSurface,
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(stringResource(id = R.string.image_dimensions_title))
-                            }
-                            append(
-                                " ${
-                                    artwork.dimensions?.dimensions?.size.ifNullOrBlank(
-                                        stringResource(id = R.string.no_data)
-                                    )
-                                }"
-                            )
-                        }
-                    )
-                    Text(
-                        color = MaterialTheme.colorScheme.inverseSurface,
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(stringResource(id = R.string.iconicity_title))
-                            }
-                            append(" ${artwork.iconicity}")
-                        }
-                    )
-                    Text(
-                        color = MaterialTheme.colorScheme.inverseSurface,
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(stringResource(id = R.string.sale_status_title))
-                            }
-                            append(
-                                " ${
-                                    artwork.saleMessage.ifNullOrBlank(stringResource(id = R.string.no_data))
-                                }"
-                            )
-                        }
-                    )
-                    Text(
-                        color = MaterialTheme.colorScheme.inverseSurface,
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(stringResource(id = R.string.date_title))
-                            }
-                            append(
-                                " ${
-                                    artwork.date.ifNullOrBlank(stringResource(id = R.string.no_data))
-                                }"
-                            )
-                        }
-                    )
-                    Text(
-                        color = MaterialTheme.colorScheme.inverseSurface,
-                        text = buildAnnotatedString {
-                            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                                append(stringResource(id = R.string.medium_title))
-                            }
-                            append(
-                                " ${
-                                    artwork.medium.ifNullOrBlank(stringResource(id = R.string.no_data))
-                                }"
-                            )
-                        }
+                    Header(
+                        image = image,
+                        headerRef = headerRef,
+                        artwork = artwork,
+                        showImageZoomScreen = showImageZoomScreen,
+                        onBackClicked = onBackClicked,
+                        onFavoriteButtonClicked = onFavoriteButtonClicked
                     )
                 }
+                ArtworkDescription(artwork)
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.fab_padding)))
             }
         } else {
@@ -257,6 +140,37 @@ fun ArtworkDetailsScreen(
         }
     }
 
+    image.value?.let {
+        val fadeDuration = 800
+        AnimatedVisibility(
+            visible = showImageZoomScreen.value,
+            enter = fadeIn(animationSpec = tween(fadeDuration)),
+            exit = fadeOut(animationSpec = tween(fadeDuration))
+        ) {
+            ArtworkDetailsZoomScreen(image = it.asImageBitmap()) {
+                showImageZoomScreen.value = false
+            }
+        }
+
+        if (showARScreen.value) {
+            ArtworkDetailsARScreen(it) {
+                showARScreen.value = false
+            }
+        }
+    }
+}
+
+@Composable
+private fun ConstraintLayoutScope.Header(
+    headerRef: ConstrainedLayoutReference,
+    image: MutableState<Bitmap?>,
+    artwork: Artwork,
+    showImageZoomScreen: MutableState<Boolean>,
+    onBackClicked: () -> Unit,
+    onFavoriteButtonClicked: (Boolean) -> Unit
+) {
+    val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
+    val paddingSmall = dimensionResource(id = R.dimen.padding_small)
     Row(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = Modifier
@@ -267,6 +181,11 @@ fun ArtworkDetailsScreen(
                 top = paddingNormal,
                 end = paddingNormal
             )
+            .constrainAs(headerRef) {
+                top.linkTo(parent.top)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            }
     ) {
         Icon(
             tint = White,
@@ -334,20 +253,162 @@ fun ArtworkDetailsScreen(
             }
         }
     }
+}
 
-    if (showImageZoomScreen.value) {
-        image.value?.let { imageToZoom ->
-            ArtworkDetailsZoomScreen(image = imageToZoom.asImageBitmap()) {
-                showImageZoomScreen.value = false
+@Composable
+private fun ArtworkDescription(artwork: Artwork) {
+    Column(
+        modifier = Modifier
+            .padding(dimensionResource(id = R.dimen.padding_small))
+    ) {
+        Text(
+            color = MaterialTheme.colorScheme.inverseSurface,
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append(stringResource(id = R.string.collecting_institution_title))
+                }
+                append(
+                    " ${
+                        artwork.collectingInstitution.ifNullOrBlank(stringResource(id = R.string.no_data))
+                    }"
+                )
             }
-        }
+        )
+        Text(
+            color = MaterialTheme.colorScheme.inverseSurface,
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append(stringResource(id = R.string.image_rights_title))
+                }
+                append(
+                    " ${
+                        artwork.imageRights.ifNullOrBlank(stringResource(id = R.string.no_data))
+                    }"
+                )
+            }
+        )
+        Text(
+            color = MaterialTheme.colorScheme.inverseSurface,
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append(stringResource(id = R.string.image_dimensions_title))
+                }
+                append(
+                    " ${
+                        artwork.dimensions?.dimensions?.size.ifNullOrBlank(
+                            stringResource(id = R.string.no_data)
+                        )
+                    }"
+                )
+            }
+        )
+        Text(
+            color = MaterialTheme.colorScheme.inverseSurface,
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append(stringResource(id = R.string.iconicity_title))
+                }
+                append(" ${artwork.iconicity}")
+            }
+        )
+        Text(
+            color = MaterialTheme.colorScheme.inverseSurface,
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append(stringResource(id = R.string.sale_status_title))
+                }
+                append(
+                    " ${
+                        artwork.saleMessage.ifNullOrBlank(stringResource(id = R.string.no_data))
+                    }"
+                )
+            }
+        )
+        Text(
+            color = MaterialTheme.colorScheme.inverseSurface,
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append(stringResource(id = R.string.date_title))
+                }
+                append(
+                    " ${
+                        artwork.date.ifNullOrBlank(stringResource(id = R.string.no_data))
+                    }"
+                )
+            }
+        )
+        Text(
+            color = MaterialTheme.colorScheme.inverseSurface,
+            text = buildAnnotatedString {
+                withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                    append(stringResource(id = R.string.medium_title))
+                }
+                append(
+                    " ${
+                        artwork.medium.ifNullOrBlank(stringResource(id = R.string.no_data))
+                    }"
+                )
+            }
+        )
     }
+}
 
-    if (showARScreen.value) {
-        image.value?.let { imageToShow ->
-            ARScreen(imageToShow) {
-                showARScreen.value = false
+@Composable
+private fun ConstraintLayoutScope.ArtworkBaseInformation(
+    artworkBaseInformationRef: ConstrainedLayoutReference,
+    headerRef: ConstrainedLayoutReference,
+    artwork: Artwork
+) {
+    var artists = ""
+    artwork.artists?.forEachIndexed { index, artist ->
+        artists += artist.name
+        if (index != artwork.artists!!.lastIndex) artists += ", "
+    }
+    val paddingSmall = dimensionResource(id = R.dimen.padding_small)
+    val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
+
+    Column(
+        modifier = Modifier
+            .constrainAs(artworkBaseInformationRef) {
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+                bottom.linkTo(parent.bottom)
+                linkTo(
+                    top = headerRef.bottom,
+                    bottom = parent.bottom,
+                    bias = 1F,
+                    topMargin = paddingNormal
+                )
             }
-        }
+            .padding(
+                start = paddingSmall,
+                end = paddingSmall,
+                bottom = paddingSmall
+            )
+            .fillMaxWidth()
+    ) {
+        Text(
+            text = artwork.title,
+            color = White,
+            fontSize = dimensionResource(id = R.dimen.artwork_title_size).value.sp,
+            fontFamily = FontFamily(
+                Font(
+                    R.font.italianno_regular,
+                    FontWeight.Normal
+                )
+            ),
+            modifier = Modifier
+                .background(Black70, RoundedCornerShape(paddingNormal))
+                .padding(start = paddingNormal, end = paddingNormal)
+        )
+        Spacer(modifier = Modifier.height(paddingSmall))
+        Text(
+            text = artists.ifBlank { stringResource(id = R.string.unknown_artist) },
+            color = White,
+            fontWeight = FontWeight.Light,
+            modifier = Modifier
+                .background(Black70, RoundedCornerShape(paddingNormal))
+                .padding(start = paddingNormal, end = paddingNormal)
+        )
     }
 }

@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -47,7 +48,7 @@ import io.github.sceneview.rememberNodes
 import io.github.sceneview.rememberOnGestureListener
 
 @Composable
-fun ARScreen(image: Bitmap, onBackClicked: () -> Unit) {
+fun ArtworkDetailsARScreen(image: Bitmap, onBackClicked: () -> Unit) {
     val engine = rememberEngine()
     val materialLoader = rememberMaterialLoader(engine = engine)
     val imageNode = ImageNode(bitmap = image, materialLoader = materialLoader)
@@ -122,6 +123,7 @@ fun ARScreen(image: Bitmap, onBackClicked: () -> Unit) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
+                    .navigationBarsPadding()
                     .background(Black50),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
