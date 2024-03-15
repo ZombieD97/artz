@@ -2,7 +2,6 @@ package com.home.artz.model.database
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
-import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.ArtworkCreators
 import com.home.artz.model.datamodel.ArtworkDimensions
 import com.home.artz.model.datamodel.ImageLinks

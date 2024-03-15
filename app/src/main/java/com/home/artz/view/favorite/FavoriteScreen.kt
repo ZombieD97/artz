@@ -12,7 +12,6 @@ import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.view.ui.components.ArtworkList
 import com.home.artz.view.ui.theme.Accent
-import com.home.artz.view.ui.theme.Tertiary
 
 @Composable
 fun FavoriteScreen(
@@ -30,7 +29,7 @@ fun FavoriteScreen(
         Icon(
             modifier = Modifier.size(dimensionResource(id = R.dimen.empty_list_icon_size)),
             tint = Accent,
-            painter = painterResource(id = R.drawable.add_favorites_icon),
+            painter = painterResource(id = R.drawable.icon_empty_favorites),
             contentDescription = stringResource(
                 id = R.string.empty_list_contentdesc
             )

@@ -38,7 +38,7 @@ abstract class BaseRepository(
         } catch (exp: UnknownHostException) {
             _userErrorMessage.emit(UserMessage.GeneralMessage(R.string.no_internet))
             null
-        } catch (exp: Exception) {
+        } catch (exp: Throwable) {
             _userErrorMessage.emit(UserMessage.GeneralMessage(R.string.something_went_wrong))
             null
         }

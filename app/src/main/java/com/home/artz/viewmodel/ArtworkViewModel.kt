@@ -11,7 +11,6 @@ import com.home.artz.model.datamodel.ArtworkCreators
 import com.home.artz.model.datamodel.UserMessage
 import com.home.artz.model.repository.artist.IArtistRepository
 import com.home.artz.model.repository.artwork.IArtworkRepository
-import com.home.artz.view.main.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

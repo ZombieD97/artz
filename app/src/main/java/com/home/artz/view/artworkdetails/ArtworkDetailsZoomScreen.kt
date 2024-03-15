@@ -2,7 +2,6 @@ package com.home.artz.view.artworkdetails
 
 import android.content.res.Configuration
 import androidx.activity.compose.BackHandler
-import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.rememberTransformableState
@@ -53,9 +52,12 @@ fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
             .fillMaxSize()
             .combinedClickableWithoutRipple(
                 onDoubleClick = {
-                    // reset zoom
-                    imageZoomScale = 1f
-                    imagePanOffset = Offset.Zero
+                    if (imageZoomScale >= 1F && imageZoomScale < 5F) {
+                        imageZoomScale++
+                    } else {
+                        imageZoomScale = 1F
+                        imagePanOffset = Offset.Zero
+                    }
                 }, onClick = {})
             .background(Black95)
     ) {

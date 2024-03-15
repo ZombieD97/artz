@@ -186,7 +186,7 @@ fun ConstraintLayoutScope.InputField(
                 Icon(
                     painter = painterResource(id = R.drawable.icon_close),
                     contentDescription = stringResource(
-                        id = R.string.clear_search_content_desc
+                        id = R.string.clear_search_contentdesc
                     ),
                     tint = Tertiary,
                     modifier = Modifier.clickable {
@@ -319,7 +319,7 @@ private fun ConstraintLayoutScope.PopularArtistList(
                 Icon(
                     tint = Tertiary,
                     modifier = Modifier.size(dimensionResource(id = R.dimen.empty_list_icon_size)),
-                    painter = painterResource(id = R.drawable.empty_image_list_icon),
+                    painter = painterResource(id = R.drawable.icon_empty_list),
                     contentDescription = stringResource(
                         id = R.string.empty_list_contentdesc
                     )
@@ -338,7 +338,7 @@ private fun ConstraintLayoutScope.PopularArtistList(
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
                     content = {
-                        itemsIndexed(popularArtists) { index, artist ->
+                        itemsIndexed(popularArtists) { _, artist ->
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 AsyncImage(
                                     model = artist.links?.image?.squareImage,

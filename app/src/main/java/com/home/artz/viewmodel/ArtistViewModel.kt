@@ -6,7 +6,6 @@ import com.home.artz.model.datamodel.Artist
 import com.home.artz.model.datamodel.SearchResult
 import com.home.artz.model.repository.artist.IArtistRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -36,7 +35,7 @@ class ArtistViewModel @Inject constructor(
             val artists = mutableListOf<Artist>()
             popularArtistsToSearch.forEach { artistName ->
                 artistRepository.searchArtists(artistName)?.first()?.let { searchResult ->
-                    artistRepository.getArtist(searchResult.searchLink.link.url)
+                    artistRepository.getArtistBy(searchResult.searchLink.link.url)
                         ?.let { artists.add(it) }
                 }
             }
@@ -53,7 +52,7 @@ class ArtistViewModel @Inject constructor(
     fun searchResultSelected(searchResult: SearchResult) {
         viewModelScope.launch {
             artistRepository.searchArtists(searchResult.title)?.first()?.let { searchResult ->
-                artistRepository.getArtist(searchResult.searchLink.link.url)
+                artistRepository.getArtistBy(searchResult.searchLink.link.url)
                     ?.let { selectedArtist.value = it }
             }
         }

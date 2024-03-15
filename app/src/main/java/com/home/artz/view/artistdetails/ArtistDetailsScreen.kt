@@ -50,6 +50,7 @@ import com.home.artz.view.ui.components.clickableWithoutRipple
 import com.home.artz.view.ui.theme.Black50
 import com.home.artz.view.ui.theme.Black70
 import com.home.artz.view.ui.theme.Blue
+import com.home.artz.view.ui.theme.Italianno
 import com.home.artz.view.ui.theme.White
 
 @Composable
@@ -139,12 +140,7 @@ private fun ArtistBaseInformation(artist: Artist) {
                 text = artist.name,
                 color = White,
                 fontSize = dimensionResource(id = R.dimen.artwork_title_size).value.sp,
-                fontFamily = FontFamily(
-                    Font(
-                        R.font.italianno_regular,
-                        FontWeight.Normal
-                    )
-                ),
+                fontFamily = Italianno,
                 modifier = Modifier
                     .background(Black70, RoundedCornerShape(paddingNormal))
                     .padding(start = paddingNormal, end = paddingNormal)

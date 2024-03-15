@@ -6,7 +6,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.home.artz.model.datamodel.UserMessage
 
-
 @Composable
 fun UserMessage(message: UserMessage) {
     val context = LocalContext.current

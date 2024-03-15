@@ -1,7 +1,6 @@
 package com.home.artz.view.discover
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -44,7 +43,7 @@ fun DiscoverScreen(
         Icon(
             tint = Tertiary,
             modifier = Modifier.size(dimensionResource(id = R.dimen.empty_list_icon_size)),
-            painter = painterResource(id = R.drawable.empty_image_list_icon),
+            painter = painterResource(id = R.drawable.icon_empty_list),
             contentDescription = stringResource(
                 id = R.string.empty_list_contentdesc
             )

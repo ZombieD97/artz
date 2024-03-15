@@ -25,7 +25,7 @@ class ArtistRepository @Inject constructor(
         return artists
     }
 
-    override suspend fun getArtist(url: String): Artist? {
+    override suspend fun getArtistBy(url: String): Artist? {
         val artist = handleRequest {
             apiService.getArtist(url)
         }
