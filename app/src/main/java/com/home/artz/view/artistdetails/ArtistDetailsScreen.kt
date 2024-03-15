@@ -48,6 +48,7 @@ import com.home.artz.view.ui.components.AsyncImagePlaceholder
 import com.home.artz.view.ui.components.Loader
 import com.home.artz.view.ui.components.clickableWithoutRipple
 import com.home.artz.view.ui.theme.Black50
+import com.home.artz.view.ui.theme.Black70
 import com.home.artz.view.ui.theme.Blue
 import com.home.artz.view.ui.theme.White
 
@@ -145,7 +146,7 @@ private fun ArtistBaseInformation(artist: Artist) {
                     )
                 ),
                 modifier = Modifier
-                    .background(Black50, RoundedCornerShape(paddingNormal))
+                    .background(Black70, RoundedCornerShape(paddingNormal))
                     .padding(start = paddingNormal, end = paddingNormal)
             )
         }

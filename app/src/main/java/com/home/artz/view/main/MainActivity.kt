@@ -2,7 +2,6 @@ package com.home.artz.view.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.PaddingValues
@@ -131,7 +130,7 @@ class MainActivity : ComponentActivity() {
                                             )
                                         }
                                         composable(Screen.HOME_FAVORITES.name) {
-                                            FavoriteScreen(artworkViewModel.favoriteArtworks,
+                                            FavoriteScreen(artworkViewModel.cachedFavoriteArtworks.value,
                                                 contentPadding,
                                                 { index ->
                                                     artworkViewModel.setSelectedArtwork(index)

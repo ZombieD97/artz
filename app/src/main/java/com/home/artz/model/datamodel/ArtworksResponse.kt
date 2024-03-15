@@ -8,8 +8,8 @@ data class ArtworksEmbeddedResponse(
 )
 
 data class ArtworksPaginationLinks(
-    @field:Json(name = "next") val nextPage: ArtworkUrl,
-    @field:Json(name = "self") val currentPage: ArtworkUrl
+    @field:Json(name = "next") val nextPage: ImageLinks,
+    @field:Json(name = "self") val currentPage: ImageLinks
 )
 
 data class ArtworksResponse(@field:Json(name = "artworks") val artworks: List<Artwork>)
