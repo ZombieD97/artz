@@ -2,6 +2,7 @@ package com.home.artz.view.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.PaddingValues
@@ -13,9 +14,7 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -24,9 +23,11 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.createGraph
 import com.home.artz.R
@@ -53,11 +54,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             ArtzTheme {
                 val mainNavController = rememberNavController()
+                val homeScreenNavController = rememberNavController()
                 NavHost(
                     navController = mainNavController,
                     graph = mainNavController.createGraph(Screen.HOME.name, null) {
                         composable(Screen.HOME.name) {
-                            val homeScreenNavController = rememberNavController()
                             Scaffold(
                                 bottomBar = {
                                     BottomNavigationBar(homeScreenNavController)
@@ -97,7 +98,8 @@ class MainActivity : ComponentActivity() {
                                                 },
                                                 onScrollEnded = {
                                                     artworkViewModel.loadMoreArtworks()
-                                                })
+                                                }
+                                            )
                                         }
                                         composable(Screen.HOME_SEARCH_ARTISTS.name) {
                                             ArtistSearchScreen(
@@ -121,7 +123,10 @@ class MainActivity : ComponentActivity() {
                                                     mainNavController.navigate(Screen.ARTIST_DETAILS.name)
                                                 },
                                                 onBackClicked = {
-                                                    mainNavController.navigateUp()
+                                                    homeScreenNavController.navigate(Screen.HOME_DISCOVER.name) {
+                                                        popUpTo(homeScreenNavController.graph.findStartDestination().id)
+                                                        launchSingleTop = true
+                                                    }
                                                 }
                                             )
                                         }
@@ -172,9 +177,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BottomNavigationBar(navController: NavHostController) {
-    val selectedItemIndex = rememberSaveable {
-        mutableIntStateOf(0)
-    }
     val navigationItems = listOf(
         MenuItem.Discover(),
         MenuItem.ArtistSearch(),
@@ -183,13 +185,18 @@ fun BottomNavigationBar(navController: NavHostController) {
     NavigationBar(
         containerColor = MaterialTheme.colorScheme.primary
     ) {
-        navigationItems.forEachIndexed { index, menuItem ->
+        navigationItems.forEach { menuItem ->
             val contentDesc = stringResource(id = menuItem.contentDesc)
+            val navBackStackEntry = navController.currentBackStackEntryAsState()
+            val currentRoute = navBackStackEntry.value?.destination?.route
+
             NavigationBarItem(
-                selected = index == selectedItemIndex.intValue,
+                selected = currentRoute == menuItem.screen.name,
                 onClick = {
-                    selectedItemIndex.intValue = index
-                    navController.navigate(menuItem.screen.name)
+                    navController.navigate(menuItem.screen.name) {
+                        popUpTo(navController.graph.findStartDestination().id)
+                        launchSingleTop = true
+                    }
                 },
                 colors = NavigationBarItemDefaults.colors(
                     selectedIconColor = MaterialTheme.colorScheme.secondary,
@@ -201,7 +208,7 @@ fun BottomNavigationBar(navController: NavHostController) {
                 },
                 icon = {
                     Icon(
-                        painter = painterResource(id = menuItem.selectedIcon),
+                        painter = painterResource(id = menuItem.icon),
                         contentDescription = stringResource(id = menuItem.contentDesc)
                     )
                 }
