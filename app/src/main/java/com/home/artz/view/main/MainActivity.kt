@@ -151,10 +151,17 @@ class MainActivity : ComponentActivity() {
                             artworkViewModel.selectedArtwork.value?.let { artwork ->
                                 ArtworkDetailsScreen(
                                     artwork,
-                                    artworkViewModel.selectedArtworkLargeImage
-                                ) {
-                                    mainNavController.navigateUp()
-                                }
+                                    artworkViewModel.selectedArtworkLargeImage,
+                                    onBackClicked = {
+                                        mainNavController.navigateUp()
+                                    },
+                                    onFavoriteButtonClicked = { isFavorite ->
+                                        artworkViewModel.modifyFavoriteStateOn(
+                                            artwork,
+                                            isFavorite
+                                        )
+                                    }
+                                )
                             }
                         }
                         composable(Screen.ARTIST_DETAILS.name) {

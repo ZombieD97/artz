@@ -186,41 +186,8 @@ private fun StaggeredArtworkGrid(
         if (isScrollEnded) onScrollEnded.invoke()
         previousCanForwardScroll.value = scrollState.canScrollForward
     }
-    if (showFavoriteDialogForArtwork.value != null) {
-        FavoriteRemoveConfirmDialog(showFavoriteDialogForArtwork) {
-            onFavoriteButtonClicked(it, false)
-        }
+    FavoriteArtworkRemoveDialog(showFavoriteDialogForArtwork) {
+        onFavoriteButtonClicked(it, false)
     }
 }
 
-@Composable
-private fun FavoriteRemoveConfirmDialog(
-    showFavoriteDialogForArtwork: MutableState<Artwork?>,
-    onConfirmClicked: (Artwork) -> Unit
-) {
-    AlertDialog(
-        title = {
-            Text(text = stringResource(R.string.favorite_dialog_remove_title))
-        },
-        onDismissRequest = { showFavoriteDialogForArtwork.value = null },
-        confirmButton = {
-            TextButton(
-                onClick = {
-                    showFavoriteDialogForArtwork.value?.let { onConfirmClicked.invoke(it) }
-                    showFavoriteDialogForArtwork.value = null
-                }
-            ) {
-                Text(stringResource(id = R.string.favorite_dialog_confirm_button_title))
-            }
-        },
-        dismissButton = {
-            TextButton(
-                onClick = {
-                    showFavoriteDialogForArtwork.value = null
-                }
-            ) {
-                Text(stringResource(id = R.string.favorite_dialog_dismiss_button_title))
-            }
-        }
-    )
-}
