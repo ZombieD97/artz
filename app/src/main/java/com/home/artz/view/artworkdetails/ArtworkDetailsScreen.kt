@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
@@ -44,6 +46,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.home.artz.R
 import com.home.artz.model.datamodel.Artwork
 import com.home.artz.model.datamodel.ifNullOrBlank
+import com.home.artz.view.ui.components.FavoriteArtworkRemoveDialog
 import com.home.artz.view.ui.components.Loader
 import com.home.artz.view.ui.components.clickableWithoutRipple
 import com.home.artz.view.ui.theme.Accent
@@ -54,6 +57,7 @@ import com.home.artz.view.ui.theme.White
 fun ArtworkDetailsScreen(
     artwork: Artwork,
     largeImage: MutableState<Bitmap?>,
+    onFavoriteButtonClicked: (Boolean) -> Unit,
     onBackClicked: () -> Unit
 ) {
     val image = remember { largeImage }
@@ -278,21 +282,56 @@ fun ArtworkDetailsScreen(
                     onBackClicked.invoke()
                 }
         )
-        if (image.value != null) {
-            Icon(
-                tint = White,
-                painter = painterResource(id = R.drawable.icon_zoom),
-                contentDescription = stringResource(
-                    id = R.string.zoom_icon_contentdesc
-                ),
-                modifier = Modifier
-                    .size(dimensionResource(id = R.dimen.details_icons_size))
-                    .background(Black50, CircleShape)
-                    .padding(paddingSmall)
-                    .clickableWithoutRipple {
-                        showImageZoomScreen.value = true
-                    }
-            )
+        image.value?.let {
+            Row {
+                val showFavoriteDialogForArtwork = rememberSaveable {
+                    mutableStateOf<Artwork?>(null)
+                }
+                val favoriteIcon: Int
+                val favoriteIconContentdesc: Int
+                if (!artwork.isFavorite) {
+                    favoriteIcon = R.drawable.icon_favorite
+                    favoriteIconContentdesc = R.string.favorite_icon_contentdesc
+                } else {
+                    favoriteIcon = R.drawable.icon_favorite_filled
+                    favoriteIconContentdesc =
+                        R.string.favorite_icon_filled_contentdesc
+                }
+                Icon(
+                    tint = Accent,
+                    painter = painterResource(id = favoriteIcon),
+                    contentDescription = stringResource(favoriteIconContentdesc),
+                    modifier = Modifier
+                        .size(dimensionResource(id = R.dimen.details_icons_size))
+                        .background(Black50, CircleShape)
+                        .padding(dimensionResource(id = R.dimen.padding_small))
+                        .clickableWithoutRipple {
+                            if (!artwork.isFavorite) {
+                                onFavoriteButtonClicked(true)
+                            } else {
+                                showFavoriteDialogForArtwork.value = artwork
+                            }
+                        }
+                )
+                Spacer(modifier = Modifier.width(paddingNormal))
+                Icon(
+                    tint = White,
+                    painter = painterResource(id = R.drawable.icon_zoom),
+                    contentDescription = stringResource(
+                        id = R.string.zoom_icon_contentdesc
+                    ),
+                    modifier = Modifier
+                        .size(dimensionResource(id = R.dimen.details_icons_size))
+                        .background(Black50, CircleShape)
+                        .padding(paddingSmall)
+                        .clickableWithoutRipple {
+                            showImageZoomScreen.value = true
+                        }
+                )
+                FavoriteArtworkRemoveDialog(showFavoriteDialogForArtwork) {
+                    onFavoriteButtonClicked(false)
+                }
+            }
         }
     }
 
