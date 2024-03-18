@@ -5,7 +5,7 @@ import androidx.annotation.StringRes
 import com.home.artz.R
 
 sealed class MenuItem(
-    @DrawableRes var selectedIcon: Int,
+    @DrawableRes var icon: Int,
     var screen: Screen,
     @StringRes var contentDesc: Int
 ) {
@@ -15,21 +15,15 @@ sealed class MenuItem(
         R.string.menuItem_discover_contentdesc
     )
 
-    class AR : MenuItem(
-        R.drawable.menu_item_ar,
-        Screen.HOME_AR,
-        R.string.menuItem_discover_contentdesc
-    )
-
-    class Search : MenuItem(
-        R.drawable.menu_item_search,
-        Screen.HOME_SEARCH,
-        R.string.menuItem_discover_contentdesc
+    class ArtistSearch : MenuItem(
+        R.drawable.menu_item_artist_search,
+        Screen.HOME_SEARCH_ARTISTS,
+        R.string.menuItem_search_contentdesc
     )
 
     class Favorites : MenuItem(
         R.drawable.menu_item_favorites,
         Screen.HOME_FAVORITES,
-        R.string.menuItem_discover_contentdesc
+        R.string.menuItem_favorites_contentdesc
     )
 }

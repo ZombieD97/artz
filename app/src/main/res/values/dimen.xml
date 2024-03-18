@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="padding_tiny">2dp</dimen>
     <dimen name="padding_small">4dp</dimen>
     <dimen name="padding_normal">8dp</dimen>
     <dimen name="padding_large">16dp</dimen>
+    <dimen name="statusbar_padding">40dp</dimen>
+    <dimen name="fab_padding">56dp</dimen>
+
     <dimen name="favorite_icon_size">30dp</dimen>
     <dimen name="details_icons_size">35dp</dimen>
     <dimen name="progress_bar_size">50dp</dimen>
-    <dimen name="fully_rounded">44dp</dimen>
+    <dimen name="empty_list_icon_size">80dp</dimen>
 
     <dimen name="artwork_title_size">32sp</dimen>
+    <dimen name="search_dropdown_text_size">20sp</dimen>
 </resources>

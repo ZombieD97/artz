@@ -1,10 +1,8 @@
 package com.home.artz.model.datamodel
 
-import android.content.Context
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.home.artz.R
 import com.squareup.moshi.Json
 
 @Entity("FavoriteArtworks")
@@ -18,33 +16,26 @@ data class Artwork(
     @ColumnInfo(name = "iconicity") @field:Json(name = "iconicity") val iconicity: Double,
     @ColumnInfo(name = "sale_message") @field:Json(name = "sale_message") val saleMessage: String?,
     @ColumnInfo(name = "dimensions") @field:Json(name = "dimensions") val dimensions: ArtworkDimensions?,
-    @ColumnInfo(name = "_links") @field:Json(name = "_links") val imageLinks: ImageLinks,
-    @ColumnInfo(name = "artists") var artists: List<Artist>? = null,
+    @ColumnInfo(name = "_links") @field:Json(name = "_links") val links: Links,
+    @ColumnInfo(name = "creators") var creators: List<ArtworkCreators>? = null,
     var isFavorite: Boolean = false
 )
 
-data class ImageLinks(
-    @field:Json(name = "image") val artworkUrl: ArtworkUrl?,
-    @field:Json(name = "similar_artworks") val similarArtworks: ArtworkUrl,
+data class ArtworkCreators(
+    @ColumnInfo(name = "id") var id: String,
+    @ColumnInfo(name = "name") var name: String?
 )
 
-data class ArtworkUrl(
+data class Links(
+    @field:Json(name = "image") val imageLinks: ImageLinks?
+)
+
+data class ImageLinks(
     @field:Json(name = "href") val imageUrl: String,
-    var mediumImage: String?,
-    var largeImageUrl: String?,
+    @ColumnInfo(name = "mediumImage") var mediumImage: String?,
+    @ColumnInfo(name = "largeImageUrl") var largeImageUrl: String?,
 )
 
 data class ArtworkDimensions(@field:Json(name = "cm") val dimensions: MetricDimensions?)
 
 data class MetricDimensions(@field:Json(name = "text") val size: String?)
-
-fun appendImageVersion(imageUrl: String, version: ImageVersion) =
-    imageUrl.removeSuffix("{image_version}.jpg") + "${version.name.lowercase()}.jpg"
-
-fun String?.ifNullOrBlank(defaultValue: String): String {
-    return if (isNullOrBlank()) defaultValue else this
-}
-
-enum class ImageVersion {
-    MEDIUM, LARGE
-}

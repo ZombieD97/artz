@@ -24,9 +24,11 @@ android {
     }
 
     buildTypes {
-        val appToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MDk3MTM5NjcsImlhdCI6MTcwOTEwOTE2NywiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZGVlZmFmNDVjMTQ0MDAwZGVjNmJkYyJ9.CnaPmQWYB4SRqGUsNCiHEA-A7bTkWS8L_xWtxGziq44"
+        val apiAppToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MTA5NDM3MjYsImlhdCI6MTcxMDMzODkyNiwiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZjFiMzZlYzZmMDA2MDAwYjMzNzk5NyJ9.I48Bq7FiP4kPt-ORH3581sX240jNwTb8Qw2pvx7_05A"
+        val appCenterAppSecret = "bf0c268f-4f9a-4b4e-9e85-fc431f0cc9c1"
         debug {
-            buildConfigField("String", "XAPPTOKEN", "\"$appToken\"")
+            buildConfigField("String", "XAPPTOKEN", "\"$apiAppToken\"")
+            buildConfigField("String", "APPSECRET", "\"$appCenterAppSecret\"")
         }
         release {
             isMinifyEnabled = false
@@ -34,7 +36,8 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "XAPPTOKEN", "\"$appToken\"")
+            buildConfigField("String", "XAPPTOKEN", "\"$apiAppToken\"")
+            buildConfigField("String", "APPSECRET", "\"$appCenterAppSecret\"")
         }
     }
     compileOptions {
@@ -74,7 +77,6 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation("androidx.compose.foundation:foundation:1.6.1")
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
 
     // Test
@@ -109,8 +111,15 @@ dependencies {
     val roomVersion = "2.6.1"
     implementation("androidx.room:room-runtime:$roomVersion")
     annotationProcessor("androidx.room:room-compiler:$roomVersion")
-    implementation("androidx.room:room-paging:$roomVersion")
     //noinspection KaptUsageInsteadOfKsp
     kapt("androidx.room:room-compiler:$roomVersion")
     implementation("androidx.room:room-ktx:$roomVersion")
+
+    // SceneView AR
+    implementation("io.github.sceneview:arsceneview:2.0.3")
+
+    //Microsoft AppCenter
+    val appCenterSdkVersion = "5.0.4"
+    implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
+    implementation("com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}")
 }
