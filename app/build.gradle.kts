@@ -122,4 +122,7 @@ dependencies {
     val appCenterSdkVersion = "5.0.4"
     implementation("com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}")
     implementation("com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}")
+
+    // Splash screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }
