@@ -112,7 +112,7 @@ private fun StaggeredArtworkGrid(
         modifier = Modifier.fillMaxSize(),
         content = {
             items(artworks) { artwork ->
-                artwork.links.imageLinks?.mediumImage.let { artworkUrl ->
+                artwork.links.imageLinks?.mediumImageUrl.let { artworkUrl ->
                     ArtworkListItem(
                         artworkImageUrl = artworkUrl,
                         defaultImageWidth = defaultImageWidth,

@@ -32,7 +32,7 @@ data class Links(
 
 data class ImageLinks(
     @field:Json(name = "href") val imageUrl: String,
-    @ColumnInfo(name = "mediumImage") var mediumImage: String?,
+    @ColumnInfo(name = "mediumImage") var mediumImageUrl: String?,
     @ColumnInfo(name = "largeImageUrl") var largeImageUrl: String?,
 )
 

@@ -1,0 +1,2758 @@
+{
+  "total_count": null,
+  "_links": {
+    "self": {
+      "href": "https://api.artsy.net/api/artworks?size=30"
+    },
+    "next": {
+      "href": "https://api.artsy.net/api/artworks?cursor=4eb191d7085cf500010003e1%3A4eb191d7085cf500010003e1&size=30"
+    }
+  },
+  "_embedded": {
+    "artworks": [
+      {
+        "id": "4d8b92eb4eb68a1b2c000968",
+        "slug": "gustav-klimt-der-kuss-the-kiss",
+        "created_at": "2010-12-20T19:48:55+00:00",
+        "updated_at": "2024-02-26T14:09:10+00:00",
+        "title": "Der Kuss (The Kiss)",
+        "category": "Painting",
+        "medium": "Oil and gold leaf on canvas",
+        "date": "1907-1908",
+        "dimensions": {
+          "in": {
+            "text": "70 9/10 Ă— 70 9/10 in",
+            "height": 70.9,
+            "width": 70.9,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "180.1 Ă— 180.1 cm",
+            "height": 180.1,
+            "width": 180.1,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Ă–sterreichische Galerie Belvedere, Vienna",
+        "additional_information": "[Image source](https://commons.wikimedia.org/wiki/File:Klimt_-_The_Kiss.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 319.9334846264162,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/NOpIAwQa-3r51Cg9qXKbfA/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/NOpIAwQa-3r51Cg9qXKbfA/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4d8b92eb4eb68a1b2c000968"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/gustav-klimt-der-kuss-the-kiss"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4d8b92eb4eb68a1b2c000968"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4d8b92eb4eb68a1b2c000968"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4d8b92eb4eb68a1b2c000968"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4d8b92eb4eb68a1b2c000968"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4d8b92eb4eb68a1b2c000968"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4d8b92ee4eb68a1b2c0009ab",
+        "slug": "francisco-de-goya-the-third-of-may",
+        "created_at": "2010-12-20T19:48:55+00:00",
+        "updated_at": "2024-03-05T21:05:07+00:00",
+        "title": "The Third of May",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1814",
+        "dimensions": {
+          "in": {
+            "text": "104 4/5 Ă— 135 9/10 in",
+            "height": 104.8,
+            "width": 135.9,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "266.2 Ă— 345.2 cm",
+            "height": 266.2,
+            "width": 345.2,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": "",
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Museo Nacional del Prado, Madrid",
+        "additional_information": "Collection: Museo Nacional del Prado, Madrid",
+        "image_rights": "Image provided by Museo Nacional del Prado",
+        "blurb": "",
+        "unique": null,
+        "cultural_maker": null,
+        "iconicity": 226.49889188708318,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "square",
+          "small",
+          "large_rectangle",
+          "large",
+          "tall",
+          "medium",
+          "medium_rectangle",
+          "larger",
+          "normalized"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/m4X41Fun8gpDjn7Gat9cUg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/m4X41Fun8gpDjn7Gat9cUg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/56f94caf139b21737200320b"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4d8b92ee4eb68a1b2c0009ab"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/francisco-de-goya-the-third-of-may"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4d8b92ee4eb68a1b2c0009ab"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4d8b92ee4eb68a1b2c0009ab"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4d8b92ee4eb68a1b2c0009ab"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4d8b92ee4eb68a1b2c0009ab"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4d8b92ee4eb68a1b2c0009ab"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4d8b93394eb68a1b2c0010fa",
+        "slug": "rembrandt-van-rijn-the-company-of-frans-banning-cocq-and-willem-van-ruytenburch-the-night-watch",
+        "created_at": "2010-12-20T19:48:55+00:00",
+        "updated_at": "2024-03-13T16:35:34+00:00",
+        "title": "The Company of Frans Banning Cocq and Willem van Ruytenburch (The Night Watch)",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1642",
+        "dimensions": {
+          "in": {
+            "text": "143 Ă— 172 1/5 in",
+            "height": 143.0,
+            "width": 172.2,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "363.2 Ă— 437.4 cm",
+            "height": 363.2,
+            "width": 437.4,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Rijksmuseum, Amsterdam",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Rembrandt_van_Rijn-De_Nachtwacht-1642.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 99.58492866202121,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/IG8ZLvVmZgQiTn2zK0Bp8w/medium.jpg"
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/534d74e21a1e864e0b0000e3"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4d8b93394eb68a1b2c0010fa"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/rembrandt-van-rijn-the-company-of-frans-banning-cocq-and-willem-van-ruytenburch-the-night-watch"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4d8b93394eb68a1b2c0010fa"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4d8b93394eb68a1b2c0010fa"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4d8b93394eb68a1b2c0010fa"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4d8b93394eb68a1b2c0010fa"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4d8b93394eb68a1b2c0010fa"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4d8b937c4eb68a1b2c001722",
+        "slug": "leonardo-da-vinci-mona-lisa",
+        "created_at": "2010-12-20T19:48:55+00:00",
+        "updated_at": "2024-02-07T18:00:58+00:00",
+        "title": "Mona Lisa",
+        "category": "Painting",
+        "medium": "Oil on poplar",
+        "date": "ca. 1503-1506",
+        "dimensions": {
+          "in": {
+            "text": "30 3/10 Ă— 20 9/10 in",
+            "height": 30.3,
+            "width": 20.9,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "77 Ă— 53.1 cm",
+            "height": 77.0,
+            "width": 53.1,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": false,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e du Louvre",
+        "additional_information": "",
+        "image_rights": "",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 214.76277813420393,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": false,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/5L1xjKC_und1uiKCpUPHhw/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/5L1xjKC_und1uiKCpUPHhw/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4d8b937c4eb68a1b2c001722"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/leonardo-da-vinci-mona-lisa"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4d8b937c4eb68a1b2c001722"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4d8b937c4eb68a1b2c001722"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4d8b937c4eb68a1b2c001722"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4d8b937c4eb68a1b2c001722"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4d8b937c4eb68a1b2c001722"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4d8b93b04eb68a1b2c001b9d",
+        "slug": "edouard-manet-luncheon-on-the-grass-le-dejeuner-sur-lherbe",
+        "created_at": "2010-12-20T19:48:55+00:00",
+        "updated_at": "2024-02-07T18:01:08+00:00",
+        "title": "Luncheon on the Grass (Le DĂ©jeuner sur l'herbe)",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1863",
+        "dimensions": {
+          "in": {
+            "text": "82 Ă— 104 in",
+            "height": 82.0,
+            "width": 104.0,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "208.3 Ă— 264.2 cm",
+            "height": 208.3,
+            "width": 264.2,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e d'Orsay, Paris",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Edouard_Manet_-_Luncheon_on_the_Grass_-_Google_Art_Project.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 241.3723577384994,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall",
+          "medium"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/zFA7cwdkWxbIrmuAAd21VA/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/zFA7cwdkWxbIrmuAAd21VA/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/5554bf037261697700010000"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4d8b93b04eb68a1b2c001b9d"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/edouard-manet-luncheon-on-the-grass-le-dejeuner-sur-lherbe"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4d8b93b04eb68a1b2c001b9d"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4d8b93b04eb68a1b2c001b9d"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4d8b93b04eb68a1b2c001b9d"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4d8b93b04eb68a1b2c001b9d"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4d8b93b04eb68a1b2c001b9d"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaeecc3d2a5820001006e93",
+        "slug": "sandro-botticelli-the-birth-of-venus",
+        "created_at": "2011-10-31T18:45:23+00:00",
+        "updated_at": "2024-03-18T07:30:37+00:00",
+        "title": "The Birth of Venus",
+        "category": "Painting",
+        "medium": "Tempera on canvas",
+        "date": "ca. 1486\n",
+        "dimensions": {
+          "in": {
+            "text": "68 Ă— 109 7/10 in",
+            "height": 68.0,
+            "width": 109.7,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "172.7 Ă— 278.6 cm",
+            "height": 172.7,
+            "width": 278.6,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Uffizi Gallery, Florence",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 257.5208761900756,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/2VgTXzq3A2p5vTxxosS4zg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/2VgTXzq3A2p5vTxxosS4zg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaeecc3d2a5820001006e93"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/sandro-botticelli-the-birth-of-venus"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaeecc3d2a5820001006e93"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaeecc3d2a5820001006e93"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaeecc3d2a5820001006e93"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaeecc3d2a5820001006e93"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaeecc3d2a5820001006e93"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaeedd66899c800010066ac",
+        "slug": "alexandre-cabanel-the-birth-of-venus",
+        "created_at": "2011-10-31T18:49:58+00:00",
+        "updated_at": "2024-02-07T18:06:36+00:00",
+        "title": "The Birth of Venus",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1863",
+        "dimensions": {
+          "in": {
+            "text": "51 1/5 Ă— 88 7/10 in",
+            "height": 51.2,
+            "width": 88.7,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "130 Ă— 225.3 cm",
+            "height": 130.0,
+            "width": 225.3,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e d'Orsay, Paris",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Alexandre_Cabanel_-_The_Birth_of_Venus_-_Google_Art_Project_2.jpg)\n\nCollection: MusĂ©e d'Orsay, Paris",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 56.75246471000498,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/79EkzLz-LMtBTfnd7ae4WA/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/79EkzLz-LMtBTfnd7ae4WA/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/5554bf037261697700010000"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaeedd66899c800010066ac"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/alexandre-cabanel-the-birth-of-venus"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaeedd66899c800010066ac"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaeedd66899c800010066ac"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaeedd66899c800010066ac"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaeedd66899c800010066ac"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaeedd66899c800010066ac"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaef38fec5cf6000100a3f9",
+        "slug": "michelangelo-merisi-da-caravaggio-the-calling-of-st-matthew",
+        "created_at": "2011-10-31T19:14:23+00:00",
+        "updated_at": "2024-03-10T17:05:59+00:00",
+        "title": "The Calling of St Matthew",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1599-1600",
+        "dimensions": {
+          "in": {
+            "text": "126 9/10 Ă— 134 in",
+            "height": 126.9,
+            "width": 134.0,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "322.3 Ă— 340.4 cm",
+            "height": 322.3,
+            "width": 340.4,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "San Luigi dei Francesi, Rome",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:The_Calling_of_Saint_Matthew-Caravaggo_%281599-1600%29.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 87.67829323521457,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/rqoQ0ln0TqFAf7GcVwBtTw/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/rqoQ0ln0TqFAf7GcVwBtTw/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaef38fec5cf6000100a3f9"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/michelangelo-merisi-da-caravaggio-the-calling-of-st-matthew"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaef38fec5cf6000100a3f9"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaef38fec5cf6000100a3f9"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaef38fec5cf6000100a3f9"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaef38fec5cf6000100a3f9"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaef38fec5cf6000100a3f9"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaefa6c76e78f0001009d40",
+        "slug": "gustave-courbet-the-burial-at-ornans",
+        "created_at": "2011-10-31T19:43:40+00:00",
+        "updated_at": "2024-02-07T18:06:36+00:00",
+        "title": "The Burial At Ornans",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1849-1850",
+        "dimensions": {
+          "in": {
+            "text": "124 1/10 Ă— 260 in",
+            "height": 124.1,
+            "width": 260.0,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "315.2 Ă— 660.4 cm",
+            "height": 315.2,
+            "width": 660.4,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e d'Orsay, Paris",
+        "additional_information": "[http://commons.wikimedia.org/wiki/File:Gustave_Courbet_-_A_Burial_at_Ornans_-_Google_Art_Project.jpg]",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 45.68457066576026,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/RXCPBByq2cmCpXfAM3g-HQ/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/RXCPBByq2cmCpXfAM3g-HQ/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/5554bf037261697700010000"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaefa6c76e78f0001009d40"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/gustave-courbet-the-burial-at-ornans"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaefa6c76e78f0001009d40"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaefa6c76e78f0001009d40"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaefa6c76e78f0001009d40"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaefa6c76e78f0001009d40"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaefa6c76e78f0001009d40"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaefc4976e78f0001009e86",
+        "slug": "leonardo-da-vinci-the-last-supper",
+        "created_at": "2011-10-31T19:51:37+00:00",
+        "updated_at": "2024-02-07T18:06:36+00:00",
+        "title": "The Last Supper",
+        "category": "Painting",
+        "medium": "Tempera on gesso, pitch and mastic",
+        "date": "1495-1498",
+        "dimensions": {
+          "in": {
+            "text": "181 1/5 Ă— 346 7/10 in",
+            "height": 181.2,
+            "width": 346.7,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "460.2 Ă— 880.6 cm",
+            "height": 460.2,
+            "width": 880.6,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Santa Maria delle Grazie, Milan",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:DaVinci_LastSupper_high_res_2_nowatmrk.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 235.47409543706522,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/jI0TpkGaAoJ9JL4s4JPdBg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/jI0TpkGaAoJ9JL4s4JPdBg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaefc4976e78f0001009e86"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/leonardo-da-vinci-the-last-supper"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaefc4976e78f0001009e86"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaefc4976e78f0001009e86"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaefc4976e78f0001009e86"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaefc4976e78f0001009e86"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaefc4976e78f0001009e86"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaefdd86899c800010081e1",
+        "slug": "leonardo-da-vinci-virgin-of-the-rocks",
+        "created_at": "2011-10-31T19:58:16+00:00",
+        "updated_at": "2024-02-07T18:06:36+00:00",
+        "title": "Virgin of the Rocks",
+        "category": "Painting",
+        "medium": "Wood, transferred to canvas in 1806 by Hacquin",
+        "date": "ca. 1483-1486",
+        "dimensions": {
+          "in": {
+            "text": "78 3/10 Ă— 48 in",
+            "height": 78.3,
+            "width": 48.0,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "199 Ă— 122 cm",
+            "height": 199.0,
+            "width": 122.0,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e du Louvre, Paris",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Leonardo_da_Vinci_-_Virgen_de_las_Rocas_%28Museo_del_Louvre,_c._1480%29.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 58.42329817134537,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/Jv-e1fhDjg61OYhhsMoiQg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/Jv-e1fhDjg61OYhhsMoiQg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/547cbaf47261692d5e2f0200"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaefdd86899c800010081e1"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/leonardo-da-vinci-virgin-of-the-rocks"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaefdd86899c800010081e1"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaefdd86899c800010081e1"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaefdd86899c800010081e1"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaefdd86899c800010081e1"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaefdd86899c800010081e1"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaf0a1476e78f000100badb",
+        "slug": "eugene-delacroix-la-mort-de-sardanapale-death-of-sardanapalus",
+        "created_at": "2011-10-31T20:50:28+00:00",
+        "updated_at": "2024-02-07T18:06:36+00:00",
+        "title": "La mort de Sardanapale (Death of Sardanapalus)",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1827",
+        "dimensions": {
+          "in": {
+            "text": "154 2/5 Ă— 195 2/5 in",
+            "height": 154.4,
+            "width": 195.4,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "392.2 Ă— 496.3 cm",
+            "height": 392.2,
+            "width": 496.3,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e du Louvre, Paris",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Ferdinand-Victor-Eug%C3%A8ne_Delacroix,_French_-_The_Death_of_Sardanapalus_-_Google_Art_Project.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 167.89267969070693,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/M1KVVn7IkF4AUTHSctJdQg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/M1KVVn7IkF4AUTHSctJdQg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/547cbaf47261692d5e2f0200"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaf0a1476e78f000100badb"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/eugene-delacroix-la-mort-de-sardanapale-death-of-sardanapalus"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaf0a1476e78f000100badb"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaf0a1476e78f000100badb"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaf0a1476e78f000100badb"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaf0a1476e78f000100badb"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaf0a1476e78f000100badb"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaf0b24bddaf7000100b6ef",
+        "slug": "eugene-delacroix-la-liberte-guidant-le-peuple-liberty-leading-the-people",
+        "created_at": "2011-10-31T20:55:00+00:00",
+        "updated_at": "2024-03-17T07:30:38+00:00",
+        "title": "La LibertĂ© guidant le peuple (Liberty Leading the People)",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1830",
+        "dimensions": {
+          "in": {
+            "text": "102 2/5 Ă— 128 1/10 in",
+            "height": 102.4,
+            "width": 128.1,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "260.1 Ă— 325.4 cm",
+            "height": 260.1,
+            "width": 325.4,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e du Louvre, Paris",
+        "additional_information": "[Image source](http://en.wikipedia.org/wiki/File:Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 218.53128213921497,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/dJCFrPhuikHpcjELtngBRA/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/dJCFrPhuikHpcjELtngBRA/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/547cbaf47261692d5e2f0200"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaf0b24bddaf7000100b6ef"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/eugene-delacroix-la-liberte-guidant-le-peuple-liberty-leading-the-people"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaf0b24bddaf7000100b6ef"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaf0b24bddaf7000100b6ef"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaf0b24bddaf7000100b6ef"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaf0b24bddaf7000100b6ef"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaf0b24bddaf7000100b6ef"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaf0cc176e78f000100bdc0",
+        "slug": "donatello-david",
+        "created_at": "2011-10-31T21:01:53+00:00",
+        "updated_at": "2024-02-07T18:06:36+00:00",
+        "title": "David",
+        "category": "Sculpture",
+        "medium": "Bronze",
+        "date": "1428-1432",
+        "dimensions": {
+          "in": {
+            "text": "62 3/10 in",
+            "height": 62.3,
+            "width": null,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "158.2 cm",
+            "height": 158.2,
+            "width": null,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Museo Nazionale del Bargello, Florence",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Florence_-_David_by_Donatello.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Photo: Patrick A. Rodgers / CC BY-SA 2.0",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 36.113911054535144,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/TwzrdD5yyuMV_nKZX3Bw4g/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/TwzrdD5yyuMV_nKZX3Bw4g/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaf0cc176e78f000100bdc0"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/donatello-david"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaf0cc176e78f000100bdc0"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaf0cc176e78f000100bdc0"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaf0cc176e78f000100bdc0"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaf0cc176e78f000100bdc0"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaf0cc176e78f000100bdc0"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaf151bd2a582000100ba46",
+        "slug": "theodore-gericault-the-raft-of-the-medusa",
+        "created_at": "2011-10-31T21:37:31+00:00",
+        "updated_at": "2024-03-01T00:13:30+00:00",
+        "title": "The Raft of the Medusa",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1818-1819",
+        "dimensions": {
+          "in": {
+            "text": "193 1/2 Ă— 282 1/10 in",
+            "height": 193.5,
+            "width": 282.1,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "491.5 Ă— 716.5 cm",
+            "height": 491.5,
+            "width": 716.5,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e du Louvre, Paris",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:JEAN_LOUIS_TH%C3%89ODORE_G%C3%89RICAULT_-_La_Balsa_de_la_Medusa_%28Museo_del_Louvre,_1818-19%29.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 222.95383643238523,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/bzu8zL8aWfe_lIdZmcB5TQ/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/bzu8zL8aWfe_lIdZmcB5TQ/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/547cbaf47261692d5e2f0200"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaf151bd2a582000100ba46"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/theodore-gericault-the-raft-of-the-medusa"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaf151bd2a582000100ba46"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaf151bd2a582000100ba46"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaf151bd2a582000100ba46"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaf151bd2a582000100ba46"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaf151bd2a582000100ba46"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaf1910bddaf7000100d117",
+        "slug": "matthias-grunewald-isenheim-altarpiece",
+        "created_at": "2011-10-31T21:54:24+00:00",
+        "updated_at": "2024-02-07T18:06:36+00:00",
+        "title": "Isenheim Altarpiece",
+        "category": "Painting",
+        "medium": "Oil on limewood",
+        "date": "1506-1515",
+        "dimensions": {
+          "in": {
+            "text": "269 Ă— 650 in",
+            "height": 269.0,
+            "width": 650.0,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "683.3 Ă— 1651 cm",
+            "height": 683.3,
+            "width": 1651.0,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Unterlinden Museum, Colmar",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Grunewald_Isenheim1.jpg)",
+        "image_rights": "Souce: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 41.30869957232222,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/q26GGWSirpNM7YuMLgIlKw/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/q26GGWSirpNM7YuMLgIlKw/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaf1910bddaf7000100d117"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/matthias-grunewald-isenheim-altarpiece"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaf1910bddaf7000100d117"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaf1910bddaf7000100d117"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaf1910bddaf7000100d117"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaf1910bddaf7000100d117"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaf1910bddaf7000100d117"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaf1d2876e78f000100cf4f",
+        "slug": "william-hogarth-the-tete-a-tete",
+        "created_at": "2011-10-31T22:11:52+00:00",
+        "updated_at": "2024-02-18T07:32:14+00:00",
+        "title": "The TĂŞte Ă  TĂŞte",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1743",
+        "dimensions": {
+          "in": {
+            "text": "27 3/5 Ă— 35 9/10 in",
+            "height": 27.6,
+            "width": 35.9,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "70.1 Ă— 91.2 cm",
+            "height": 70.1,
+            "width": 91.2,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": "Marriage Ă  la Mode",
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "The National Gallery, London",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:William_Hogarth_-_Marriage_A-la-Mode_2_The_T%C3%AAte_%C3%A0_T%C3%AAte.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 35.758774299326454,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/5KJ7_u7BPqeltkfEnyijIw/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/5KJ7_u7BPqeltkfEnyijIw/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/506210a0a9f1ad00020003df"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaf1d2876e78f000100cf4f"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/william-hogarth-the-tete-a-tete"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaf1d2876e78f000100cf4f"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaf1d2876e78f000100cf4f"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaf1d2876e78f000100cf4f"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaf1d2876e78f000100cf4f"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaf1d2876e78f000100cf4f"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaf1e4435118f000100d32a",
+        "slug": "jean-auguste-dominique-ingres-la-grande-odalisque",
+        "created_at": "2011-10-31T22:16:36+00:00",
+        "updated_at": "2024-02-28T10:01:20+00:00",
+        "title": "La Grande Odalisque",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1814",
+        "dimensions": {
+          "in": {
+            "text": "35 Ă— 64 in",
+            "height": 35.0,
+            "width": 64.0,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "88.9 Ă— 162.6 cm",
+            "height": 88.9,
+            "width": 162.6,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e du Louvre, Paris",
+        "additional_information": "[Image source](https://commons.wikimedia.org/wiki/File:Jean_Auguste_Dominique_Ingres,_La_Grande_Odalisque,_1814.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 218.89915309458033,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/crVj8GvGliFrpExNfHWl4Q/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/crVj8GvGliFrpExNfHWl4Q/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/547cbaf47261692d5e2f0200"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaf1e4435118f000100d32a"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/jean-auguste-dominique-ingres-la-grande-odalisque"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaf1e4435118f000100d32a"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaf1e4435118f000100d32a"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaf1e4435118f000100d32a"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaf1e4435118f000100d32a"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaf1e4435118f000100d32a"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eaf209c35118f000100dde6",
+        "slug": "edouard-manet-olympia",
+        "created_at": "2011-10-31T22:26:36+00:00",
+        "updated_at": "2024-03-03T07:32:29+00:00",
+        "title": "Olympia",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1863",
+        "dimensions": {
+          "in": {
+            "text": "51 2/5 Ă— 74 9/10 in",
+            "height": 51.4,
+            "width": 74.9,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "130.6 Ă— 190.2 cm",
+            "height": 130.6,
+            "width": 190.2,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e d'Orsay, Paris",
+        "additional_information": "",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 210.56359946141686,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/8OP240tfZuWHtSaPum_ePQ/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/8OP240tfZuWHtSaPum_ePQ/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/5554bf037261697700010000"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eaf209c35118f000100dde6"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/edouard-manet-olympia"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eaf209c35118f000100dde6"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eaf209c35118f000100dde6"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eaf209c35118f000100dde6"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eaf209c35118f000100dde6"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eaf209c35118f000100dde6"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb0259f7ec38b0001001021",
+        "slug": "berthe-morisot-le-berceau-the-cradle",
+        "created_at": "2011-11-01T17:00:15+00:00",
+        "updated_at": "2024-02-26T18:11:01+00:00",
+        "title": "Le Berceau (The Cradle)",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1872",
+        "dimensions": {
+          "in": {
+            "text": "22 1/10 Ă— 18 1/10 in",
+            "height": 22.1,
+            "width": 18.1,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "56.1 Ă— 46 cm",
+            "height": 56.1,
+            "width": 46.0,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e d'Orsay",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Berthe_Morisot_-_The_Cradle_-_Google_Art_Project.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 49.41816487441221,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/UeJI0aLYPHZ3TYc_B6JkCg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/UeJI0aLYPHZ3TYc_B6JkCg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/5554bf037261697700010000"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb0259f7ec38b0001001021"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/berthe-morisot-le-berceau-the-cradle"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb0259f7ec38b0001001021"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb0259f7ec38b0001001021"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb0259f7ec38b0001001021"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb0259f7ec38b0001001021"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb0259f7ec38b0001001021"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb063a5b1976400010071f0",
+        "slug": "rembrandt-van-rijn-the-anatomy-lesson-of-dr-nicolaes-tulp",
+        "created_at": "2011-11-01T21:24:53+00:00",
+        "updated_at": "2024-02-07T18:06:38+00:00",
+        "title": "The Anatomy Lesson of Dr. Nicolaes Tulp",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1632",
+        "dimensions": {
+          "in": {
+            "text": "85 3/10 Ă— 66 4/5 in",
+            "height": 85.3,
+            "width": 66.8,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "216.7 Ă— 169.7 cm",
+            "height": 216.7,
+            "width": 169.7,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Mauritshuis, The Hague",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:The_Anatomy_Lesson.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 172.26266549872417,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/kvFioLTBXu0SWZ52sge1FQ/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/kvFioLTBXu0SWZ52sge1FQ/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb063a5b1976400010071f0"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/rembrandt-van-rijn-the-anatomy-lesson-of-dr-nicolaes-tulp"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb063a5b1976400010071f0"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb063a5b1976400010071f0"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb063a5b1976400010071f0"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb063a5b1976400010071f0"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb063a5b1976400010071f0"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb0654269c04b00010096da",
+        "slug": "pierre-auguste-renoir-dance-at-le-moulin-de-la-galette-bal-du-moulin-de-la-galette",
+        "created_at": "2011-11-01T21:31:46+00:00",
+        "updated_at": "2024-03-15T07:31:04+00:00",
+        "title": "Dance at Le Moulin de la Galette (Bal du moulin de la galette)",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1876",
+        "dimensions": {
+          "in": {
+            "text": "51 3/5 Ă— 69 in",
+            "height": 51.6,
+            "width": 69.0,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "131.1 Ă— 175.3 cm",
+            "height": 131.1,
+            "width": 175.3,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e d'Orsay, Paris",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Auguste_Renoir_-_Dance_at_Le_Moulin_de_la_Galette_-_Google_Art_Project.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 237.24729917590446,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/eRWu6KaVL0uH2MD9y8ZFhw/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/eRWu6KaVL0uH2MD9y8ZFhw/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/5554bf037261697700010000"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb0654269c04b00010096da"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/pierre-auguste-renoir-dance-at-le-moulin-de-la-galette-bal-du-moulin-de-la-galette"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb0654269c04b00010096da"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb0654269c04b00010096da"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb0654269c04b00010096da"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb0654269c04b00010096da"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb0654269c04b00010096da"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb068115fb415000100a26a",
+        "slug": "auguste-rodin-the-gates-of-hell-detail-the-thinker",
+        "created_at": "2011-11-01T21:43:45+00:00",
+        "updated_at": "2024-02-07T18:06:37+00:00",
+        "title": "The Gates of Hell (Detail: The Thinker)",
+        "category": "Sculpture",
+        "medium": "Bronze and marble",
+        "date": "1902",
+        "dimensions": {
+          "in": {
+            "text": "630 Ă— 390 in",
+            "height": 630.0,
+            "width": 390.0,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "1600.2 Ă— 990.6 cm",
+            "height": 1600.2,
+            "width": 990.6,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e Rodin, Paris",
+        "additional_information": "[Image source](http://en.wikipedia.org/wiki/File:Le_penseur_de_la_Porte_de_lEnfer_%28mus%C3%A9e_Rodin%29_%284528252054%29.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Photo: dalbera / CC BY-SA 2.0",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 197.8517514234785,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/HneZ_vS4Y9qlam7Uj-xBjA/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/HneZ_vS4Y9qlam7Uj-xBjA/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/548365767261697f94b30500"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb068115fb415000100a26a"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/auguste-rodin-the-gates-of-hell-detail-the-thinker"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb068115fb415000100a26a"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb068115fb415000100a26a"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb068115fb415000100a26a"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb068115fb415000100a26a"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb068115fb415000100a26a"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb06c8c5fb415000100b92d",
+        "slug": "peter-paul-rubens-le-debarquement-de-marie-de-medicis-au-port-de-marseille-le-3-november-1600-maria-medici-arrives-in-marseille-nov-3-1600",
+        "created_at": "2011-11-01T22:02:52+00:00",
+        "updated_at": "2024-03-17T07:30:31+00:00",
+        "title": "Le debarquement de Marie de MĂ©dicis au port de Marseille le 3 November 1600 (Maria Medici arrives in Marseille, Nov. 3 1600)",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "ca. 1622-1625",
+        "dimensions": {
+          "in": {
+            "text": "155 1/5 Ă— 116 1/5 in",
+            "height": 155.2,
+            "width": 116.2,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "394.2 Ă— 295.1 cm",
+            "height": 394.2,
+            "width": 295.1,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e du Louvre, Paris",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Peter_Paul_Rubens_035.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 169.26584211304984,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/nivmR8d4gTT7TtkoLwqFiA/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/nivmR8d4gTT7TtkoLwqFiA/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/547cbaf47261692d5e2f0200"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb06c8c5fb415000100b92d"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/peter-paul-rubens-le-debarquement-de-marie-de-medicis-au-port-de-marseille-le-3-november-1600-maria-medici-arrives-in-marseille-nov-3-1600"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb06c8c5fb415000100b92d"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb06c8c5fb415000100b92d"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb06c8c5fb415000100b92d"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb06c8c5fb415000100b92d"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb06c8c5fb415000100b92d"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb077c25fb415000100dd91",
+        "slug": "vincent-van-gogh-self-portrait-with-bandaged-ear",
+        "created_at": "2011-11-01T22:50:42+00:00",
+        "updated_at": "2024-02-11T07:33:46+00:00",
+        "title": "Self-Portrait with Bandaged Ear",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1889",
+        "dimensions": {
+          "in": {
+            "text": "23 4/5 Ă— 19 7/10 in",
+            "height": 23.8,
+            "width": 19.7,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "60.5 Ă— 50 cm",
+            "height": 60.5,
+            "width": 50.0,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "The Courtauld Gallery, London",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:Selfportraitbandagedear.jpeg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 57.01480660820373,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/urJNHDCBl7n_iQmKmYUN7w/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/urJNHDCBl7n_iQmKmYUN7w/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb077c25fb415000100dd91"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/vincent-van-gogh-self-portrait-with-bandaged-ear"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb077c25fb415000100dd91"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb077c25fb415000100dd91"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb077c25fb415000100dd91"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb077c25fb415000100dd91"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb077c25fb415000100dd91"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb07ac455422d000100ca2b",
+        "slug": "johannes-vermeer-the-allegory-of-painting",
+        "created_at": "2011-11-01T23:03:32+00:00",
+        "updated_at": "2024-02-17T07:31:07+00:00",
+        "title": "The Allegory of Painting",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "ca. 1666",
+        "dimensions": {
+          "in": {
+            "text": "51 1/5 Ă— 43 3/10 in",
+            "height": 51.2,
+            "width": 43.3,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "130 Ă— 110 cm",
+            "height": 130.0,
+            "width": 110.0,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "Museum of Fine Art, Vienna",
+        "additional_information": "[Image source](https://commons.wikimedia.org/wiki/File:Jan_Vermeer_-_The_Art_of_Painting_-_Google_Art_Project.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 204.41787848361142,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": "Not for sale",
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/gTPexURCjkBek6MrG7g1bg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/gTPexURCjkBek6MrG7g1bg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/51cc9a88275b24f8700000db"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb07ac455422d000100ca2b"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/johannes-vermeer-the-allegory-of-painting"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb07ac455422d000100ca2b"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb07ac455422d000100ca2b"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb07ac455422d000100ca2b"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb07ac455422d000100ca2b"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb07ac455422d000100ca2b"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb080ebaf49300001010899",
+        "slug": "jean-antoine-watteau-lembarquement-pour-cythere-the-embarkation-for-cythera",
+        "created_at": "2011-11-01T23:29:47+00:00",
+        "updated_at": "2024-02-07T18:06:38+00:00",
+        "title": "L'Embarquement pour CythĂ¨re (The Embarkation for Cythera)",
+        "category": "Painting",
+        "medium": "Oil on canvas",
+        "date": "1717",
+        "dimensions": {
+          "in": {
+            "text": "50 4/5 Ă— 76 2/5 in",
+            "height": 50.8,
+            "width": 76.4,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "129 Ă— 194.1 cm",
+            "height": 129.0,
+            "width": 194.1,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": false,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "",
+        "literature": "",
+        "exhibition_history": "",
+        "collecting_institution": "MusĂ©e du Louvre, Paris",
+        "additional_information": "[Image source](http://commons.wikimedia.org/wiki/File:L%27Embarquement_pour_Cythere,_by_Antoine_Watteau,_from_C2RMF_retouched.jpg)",
+        "image_rights": "Source: Wikimedia Commons / Public Domain",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 36.25515130909468,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": false,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/Ux_L_UKjxgR-gJ6XZYVgVg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/Ux_L_UKjxgR-gJ6XZYVgVg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/547cbaf47261692d5e2f0200"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb080ebaf49300001010899"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/jean-antoine-watteau-lembarquement-pour-cythere-the-embarkation-for-cythera"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb080ebaf49300001010899"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb080ebaf49300001010899"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb080ebaf49300001010899"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb080ebaf49300001010899"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb080ebaf49300001010899"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb18d156c4c0c00010005bc",
+        "slug": "a-buddha",
+        "created_at": "2011-11-02T18:33:57+00:00",
+        "updated_at": "2024-02-07T18:06:38+00:00",
+        "title": "A Buddha",
+        "category": "Sculpture",
+        "medium": "Copper alloy inlaid with crystal and obsidian",
+        "date": "1890",
+        "dimensions": {
+          "in": {
+            "text": "25 7/8 Ă— 12 1/2 Ă— 9 in",
+            "height": 25.875,
+            "width": 12.5,
+            "depth": 9.0,
+            "diameter": null
+          },
+          "cm": {
+            "text": "65.7 Ă— 31.8 Ă— 22.9 cm",
+            "height": 65.7,
+            "width": 31.8,
+            "depth": 22.9,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "         \n\n\n",
+        "literature": "      \n\n\n",
+        "exhibition_history": "   ",
+        "collecting_institution": "",
+        "additional_information": "In the South and Southeast Asian Art collection at LACMA.\n\nGift of Michael Phillips (M.80.228.2)\n",
+        "image_rights": "Image provided by the Los Angeles County Museum of Art",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 30.751851930590597,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/ZTrcPcyWDz0U3hng4yZM9w/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/ZTrcPcyWDz0U3hng4yZM9w/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/4eb18d6ac8004a0001000001"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb18d156c4c0c00010005bc"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/a-buddha"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb18d156c4c0c00010005bc"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb18d156c4c0c00010005bc"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb18d156c4c0c00010005bc"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb18d156c4c0c00010005bc"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb18d156c4c0c00010005bc"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb191804bf5a900010007c6",
+        "slug": "jean-francois-millet-a-norman-milkmaid-at-greville",
+        "created_at": "2011-11-02T18:52:48+00:00",
+        "updated_at": "2024-02-07T18:06:38+00:00",
+        "title": "A Norman Milkmaid at GrĂ©ville",
+        "category": "Painting",
+        "medium": "Oil on cardboard",
+        "date": "1871",
+        "dimensions": {
+          "in": {
+            "text": "31 1/2 Ă— 21 7/8 in",
+            "height": 31.5,
+            "width": 21.875,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "80 Ă— 55.6 cm",
+            "height": 80.0,
+            "width": 55.6,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "         \n\n\n",
+        "literature": "      \n\n\n",
+        "exhibition_history": "   ",
+        "collecting_institution": "",
+        "additional_information": "In the European Painting and Sculpture collection at LACMA.\n\nGift of Howard Ahmanson, Jr. (M.81.259.4)\n ",
+        "image_rights": "Image provided by the Los Angeles County Museum of Art",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 33.9944071052888,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "large_rectangle",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/pvkrk6CX9REDaktWb-3VGg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/pvkrk6CX9REDaktWb-3VGg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/4eb18d6ac8004a0001000001"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb191804bf5a900010007c6"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/jean-francois-millet-a-norman-milkmaid-at-greville"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb191804bf5a900010007c6"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb191804bf5a900010007c6"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb191804bf5a900010007c6"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb191804bf5a900010007c6"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb191804bf5a900010007c6"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      },
+      {
+        "id": "4eb191d7085cf500010003e1",
+        "slug": "basawan-a-court-scene-folio-from-a-manuscript-of-sadis-gulistan-rose-garden",
+        "created_at": "2011-11-02T18:54:15+00:00",
+        "updated_at": "2024-03-15T04:32:23+00:00",
+        "title": "A Court Scene, Folio from a Manuscript of Sadi's Gulistan (Rose Garden) ",
+        "category": "Drawing, Collage or other Work on Paper",
+        "medium": "Opaque watercolor, gold, and ink on paper",
+        "date": "1596",
+        "dimensions": {
+          "in": {
+            "text": "10 3/8 Ă— 5 3/4 in",
+            "height": 10.375,
+            "width": 5.75,
+            "depth": null,
+            "diameter": null
+          },
+          "cm": {
+            "text": "26.4 Ă— 14.6 cm",
+            "height": 26.4,
+            "width": 14.6,
+            "depth": null,
+            "diameter": null
+          }
+        },
+        "published": true,
+        "website": "",
+        "signature": "",
+        "series": null,
+        "provenance": "         \n\n\n",
+        "literature": "      \n\n\n",
+        "exhibition_history": "   ",
+        "collecting_institution": "",
+        "additional_information": "In the collection of South and Southeast Asian Art at LACMA. \n\nFrom the Nasli and Alice Heeramaneck Collection, Museum Associates Purchase (M.79.9.12)",
+        "image_rights": "Image provided by the Los Angeles County Museum of Art",
+        "blurb": "",
+        "unique": false,
+        "cultural_maker": null,
+        "iconicity": 22.322062790921823,
+        "can_inquire": false,
+        "can_acquire": false,
+        "can_share": true,
+        "sale_message": null,
+        "sold": false,
+        "image_versions": [
+          "large",
+          "larger",
+          "medium",
+          "medium_rectangle",
+          "normalized",
+          "small",
+          "square",
+          "tall"
+        ],
+        "_links": {
+          "thumbnail": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/cK3QmARkRi9Yba7rCDzCVg/medium.jpg"
+          },
+          "image": {
+            "href": "https://d32dm0rphc51dk.cloudfront.net/cK3QmARkRi9Yba7rCDzCVg/{image_version}.jpg",
+            "templated": true
+          },
+          "partner": {
+            "href": "https://api.artsy.net/api/partners/4eb18d6ac8004a0001000001"
+          },
+          "self": {
+            "href": "https://api.artsy.net/api/artworks/4eb191d7085cf500010003e1"
+          },
+          "permalink": {
+            "href": "https://www.artsy.net/artwork/basawan-a-court-scene-folio-from-a-manuscript-of-sadis-gulistan-rose-garden"
+          },
+          "genes": {
+            "href": "https://api.artsy.net/api/genes?artwork_id=4eb191d7085cf500010003e1"
+          },
+          "artists": {
+            "href": "https://api.artsy.net/api/artists?artwork_id=4eb191d7085cf500010003e1"
+          },
+          "similar_artworks": {
+            "href": "https://api.artsy.net/api/artworks?similar_to_artwork_id=4eb191d7085cf500010003e1"
+          },
+          "collection_users": {
+            "href": "https://api.artsy.net/api/users?collected_artwork_id=4eb191d7085cf500010003e1"
+          },
+          "sale_artworks": {
+            "href": "https://api.artsy.net/api/sale_artworks?artwork_id=4eb191d7085cf500010003e1"
+          }
+        },
+        "_embedded": {
+          "editions": []
+        }
+      }
+    ]
+  }
+}
