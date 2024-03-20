@@ -58,53 +58,57 @@ class ArtworkViewModel @Inject constructor(
     }
 
     fun modifyFavoriteStateOn(artwork: Artwork, isFavorite: Boolean) {
-        viewModelScope.launch {
-            if (isFavorite) {
-                artwork.isFavorite = true
-                fetchCreatorsIfNeeded(artwork)
+        artwork.links.imageLinks?.let {
+            viewModelScope.launch {
+                if (isFavorite) {
+                    artwork.isFavorite = true
+                    fetchCreatorsIfNeeded(artwork)
 
-                val favoriteArtworks = cachedFavoriteArtworks.value?.toMutableList() ?: mutableListOf()
-                favoriteArtworks.add(artwork)
+                    val favoriteArtworks = cachedFavoriteArtworks.value?.toMutableList() ?: mutableListOf()
+                    favoriteArtworks.add(artwork)
 
-                artworkRepository.saveToFavorites(artwork)
-                cachedFavoriteArtworks.value = favoriteArtworks
-                cachedArtworks.value?.firstOrNull { it.id == artwork.id }?.isFavorite = true
+                    artworkRepository.saveToFavorites(artwork)
+                    cachedFavoriteArtworks.value = favoriteArtworks
+                    cachedArtworks.value?.firstOrNull { it.id == artwork.id }?.isFavorite = true
 
-                userMessage.value = UserMessage.GeneralMessage(R.string.artwork_added_to_favorites)
-            } else {
-                artwork.isFavorite = false
+                    userMessage.value = UserMessage.GeneralMessage(R.string.artwork_added_to_favorites)
+                } else {
+                    artwork.isFavorite = false
 
-                val favoriteArtworks = cachedFavoriteArtworks.value?.toMutableList() ?: mutableListOf()
-                favoriteArtworks.removeIf { it.id == artwork.id }
+                    val favoriteArtworks = cachedFavoriteArtworks.value?.toMutableList() ?: mutableListOf()
+                    favoriteArtworks.removeIf { it.id == artwork.id }
 
-                artworkRepository.removeFromFavorites(artwork)
-                cachedFavoriteArtworks.value = favoriteArtworks.ifEmpty { null }
-                cachedArtworks.value?.firstOrNull { it.id == artwork.id }?.isFavorite = false
+                    artworkRepository.removeFromFavorites(artwork)
+                    cachedFavoriteArtworks.value = favoriteArtworks.ifEmpty { null }
+                    cachedArtworks.value?.firstOrNull { it.id == artwork.id }?.isFavorite = false
 
-                userMessage.value =
-                    UserMessage.GeneralMessage(R.string.artwork_removed_from_favorites)
+                    userMessage.value =
+                        UserMessage.GeneralMessage(R.string.artwork_removed_from_favorites)
+                }
             }
         }
     }
 
     fun setSelectedArtwork(artwork: Artwork) {
-        viewModelScope.launch {
-            selectedArtworkLargeImage.value = null
+        artwork.links.imageLinks?.let {
+            viewModelScope.launch {
+                selectedArtworkLargeImage.value = null
 
-            fetchCreatorsIfNeeded(artwork)
-            selectedArtwork.value = artwork
+                fetchCreatorsIfNeeded(artwork)
+                selectedArtwork.value = artwork
 
-            val imageUrl =
-                artwork.links.imageLinks?.largeImageUrl ?: artwork.links.imageLinks?.mediumImage
-            imageUrl?.let {
-                withContext(Dispatchers.IO) {
-                    try {
-                        val url = URL(it)
-                        selectedArtworkLargeImage.value =
-                            BitmapFactory.decodeStream(url.openConnection().getInputStream())
-                    } catch (e: IOException) {
-                        userMessage.value =
-                            UserMessage.GeneralMessage(R.string.something_went_wrong)
+                val imageUrl =
+                    artwork.links.imageLinks.largeImageUrl ?: artwork.links.imageLinks.mediumImage
+                imageUrl?.let {
+                    withContext(Dispatchers.IO) {
+                        try {
+                            val url = URL(it)
+                            selectedArtworkLargeImage.value =
+                                BitmapFactory.decodeStream(url.openConnection().getInputStream())
+                        } catch (e: IOException) {
+                            userMessage.value =
+                                UserMessage.GeneralMessage(R.string.something_went_wrong)
+                        }
                     }
                 }
             }

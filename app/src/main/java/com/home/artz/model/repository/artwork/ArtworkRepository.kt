@@ -34,17 +34,19 @@ class ArtworkRepository @Inject constructor(
         val response = handleRequest {
             apiService.getArtworks(url)
         }
-        return response?.embeddedResponse?.artworks?.let { artworks ->
-            nextPageLink = response.paginationLinks.nextPage.imageUrl
+        val artworks = response?.embeddedResponse?.artworks?.filter { it.links.imageLinks?.imageUrl != null } ?: return null
 
-            val favoriteArtworkIds = getFavoriteArtworks().map { favorite -> favorite.id }
+        if (artworks.isEmpty()) return null
 
-            return artworks.onEach { artwork ->
-                artwork.isFavorite = favoriteArtworkIds.contains(artwork.id)
-                artwork.links.imageLinks?.imageUrl?.let { imageUrl ->
-                    artwork.links.imageLinks.mediumImage = appendImageVersion(imageUrl, ImageVersion.MEDIUM)
-                    artwork.links.imageLinks.largeImageUrl = appendImageVersion(imageUrl, ImageVersion.LARGE)
-                }
+        nextPageLink = response.paginationLinks.nextPage.imageUrl
+
+        val favoriteArtworkIds = getFavoriteArtworks().map { favorite -> favorite.id }
+
+        return artworks.onEach { artwork ->
+            artwork.isFavorite = favoriteArtworkIds.contains(artwork.id)
+            artwork.links.imageLinks?.imageUrl?.let { imageUrl ->
+                artwork.links.imageLinks.mediumImage = appendImageVersion(imageUrl, ImageVersion.MEDIUM)
+                artwork.links.imageLinks.largeImageUrl = appendImageVersion(imageUrl, ImageVersion.LARGE)
             }
         }
     }
