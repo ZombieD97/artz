@@ -13,11 +13,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -93,63 +93,79 @@ fun ArtworkDetailsARScreen(image: Bitmap, onBackClicked: () -> Unit) {
     )
 
     Column(modifier = Modifier.fillMaxHeight(), verticalArrangement = Arrangement.SpaceBetween) {
-        val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    start = paddingNormal,
-                    top = paddingNormal,
-                    end = paddingNormal
-                )
-                .statusBarsPadding()
-        ) {
-            Icon(
-                tint = White,
-                painter = painterResource(id = R.drawable.icon_back),
-                contentDescription = stringResource(
-                    id = R.string.icon_back_contentdesc
-                ),
-                modifier = Modifier
-                    .size(dimensionResource(id = R.dimen.details_icons_size))
-                    .background(Black50, CircleShape)
-                    .padding(dimensionResource(id = R.dimen.padding_small))
-                    .clickableWithoutRipple {
-                        onBackClicked.invoke()
-                    }
-            )
-        }
+        Header(onBackClicked)
         if (showUserMessage.value) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .navigationBarsPadding()
-                    .background(Black50),
-                horizontalArrangement = Arrangement.SpaceBetween,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    modifier = Modifier
-                        .weight(0.8F)
-                        .padding(paddingNormal),
-                    color = White,
-                    text = trackingFailureReason?.getDescription(LocalContext.current) ?: stringResource(
-                        id = R.string.ar_searching_for_surface
-                    )
-                )
-                Text(
-                    modifier = Modifier
-                        .weight(0.2F)
-                        .padding(paddingNormal)
-                        .clickable { showUserMessage.value = false },
-                    color = Accent,
-                    text = stringResource(id = R.string.ar_hide_help)
-                )
-            }
+            UserMessage(
+                trackingFailureReason = trackingFailureReason,
+                showUserMessage = showUserMessage
+            )
         }
     }
 
     BackHandler {
         onBackClicked.invoke()
+    }
+}
+
+@Composable
+private fun Header(onBackClicked: () -> Unit) {
+    val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(
+                start = paddingNormal,
+                top = dimensionResource(id = R.dimen.statusbar_padding),
+                end = paddingNormal
+            )
+    ) {
+        Icon(
+            tint = White,
+            painter = painterResource(id = R.drawable.icon_back),
+            contentDescription = stringResource(
+                id = R.string.icon_back_contentdesc
+            ),
+            modifier = Modifier
+                .size(dimensionResource(id = R.dimen.details_icons_size))
+                .background(Black50, CircleShape)
+                .padding(dimensionResource(id = R.dimen.padding_small))
+                .clickableWithoutRipple {
+                    onBackClicked.invoke()
+                }
+        )
+    }
+}
+
+@Composable
+private fun UserMessage(
+    trackingFailureReason: TrackingFailureReason?,
+    showUserMessage: MutableState<Boolean>
+) {
+    val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .navigationBarsPadding()
+            .background(Black50),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            modifier = Modifier
+                .weight(0.8F)
+                .padding(paddingNormal),
+            color = White,
+            text = trackingFailureReason?.getDescription(LocalContext.current) ?: stringResource(
+                id = R.string.ar_searching_for_surface
+            )
+        )
+        Text(
+            modifier = Modifier
+                .weight(0.2F)
+                .padding(paddingNormal)
+                .clickable { showUserMessage.value = false },
+            color = Accent,
+            text = stringResource(id = R.string.ar_hide_help)
+        )
     }
 }

@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -43,7 +42,6 @@ import com.home.artz.view.ui.theme.White
 fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
     var imageZoomScale by remember { mutableFloatStateOf(1f) }
     var imagePanOffset by remember { mutableStateOf(Offset.Zero) }
-    val detailsIconsPadding = dimensionResource(id = R.dimen.padding_normal)
     val config = LocalConfiguration.current
 
     BoxWithConstraints(
@@ -104,14 +102,22 @@ fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
         )
     }
 
+    Header(onCloseClicked)
+
+    BackHandler {
+        onCloseClicked.invoke()
+    }
+}
+
+@Composable
+private fun Header(onCloseClicked: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(
-                start = detailsIconsPadding,
-                top = detailsIconsPadding
+                start = dimensionResource(id = R.dimen.padding_normal),
+                top = dimensionResource(id = R.dimen.statusbar_padding)
             )
-            .statusBarsPadding()
     ) {
         Icon(
             tint = White,
@@ -127,10 +133,6 @@ fun ArtworkDetailsZoomScreen(image: ImageBitmap, onCloseClicked: () -> Unit) {
                     onCloseClicked.invoke()
                 }
         )
-    }
-
-    BackHandler {
-        onCloseClicked.invoke()
     }
 }
 

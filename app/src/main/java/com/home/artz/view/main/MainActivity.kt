@@ -49,8 +49,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-        actionBar?.hide()
+        hideSystemBars()
         setContent {
             ArtzTheme {
                 val mainNavController = rememberNavController()
@@ -72,7 +71,7 @@ class MainActivity : ComponentActivity() {
                                 val contentPadding = PaddingValues(
                                     start = paddingNormal,
                                     end = paddingNormal,
-                                    top = paddingNormal,
+                                    top = dimensionResource(id = R.dimen.statusbar_padding),
                                     bottom = scaffoldPadding.calculateBottomPadding()
                                 )
                                 NavHost(
@@ -179,6 +178,11 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    private fun hideSystemBars() {
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        actionBar?.hide()
     }
 }
 

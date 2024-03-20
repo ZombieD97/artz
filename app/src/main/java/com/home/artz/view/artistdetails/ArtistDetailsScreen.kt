@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,8 +30,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.font.Font
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.withStyle
@@ -72,7 +69,7 @@ fun ArtistDetailsScreen(
         ArtistDescription(artist = artist, moreInfoUrl = moreInfoUrl)
     }
 
-    BackButton(onBackClicked)
+    Header(onBackClicked)
 
     moreInfoUrl.value?.let {
         val showLoader = remember {
@@ -235,16 +232,15 @@ private fun ArtistDescription(artist: Artist, moreInfoUrl: MutableState<ArtistUr
 }
 
 @Composable
-private fun BackButton(onBackClicked: () -> Unit) {
+private fun Header(onBackClicked: () -> Unit) {
     val paddingNormal = dimensionResource(id = R.dimen.padding_normal)
     val paddingSmall = dimensionResource(id = R.dimen.padding_small)
     Row(
         Modifier
             .fillMaxWidth()
-            .statusBarsPadding()
             .padding(
                 start = paddingNormal,
-                top = paddingNormal,
+                top = dimensionResource(id = R.dimen.statusbar_padding),
                 end = paddingNormal
             )
     ) {
