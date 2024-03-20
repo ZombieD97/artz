@@ -24,7 +24,7 @@ android {
     }
 
     buildTypes {
-        val apiAppToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MTA5NDM3MjYsImlhdCI6MTcxMDMzODkyNiwiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZjFiMzZlYzZmMDA2MDAwYjMzNzk5NyJ9.I48Bq7FiP4kPt-ORH3581sX240jNwTb8Qw2pvx7_05A"
+        val apiAppToken = "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6IiIsInN1YmplY3RfYXBwbGljYXRpb24iOiI1NTA2MTk1Yi04NjFmLTRmNjEtOGYxOS05M2QxZDlmYmZkYmUiLCJleHAiOjE3MTE1NjE5MjEsImlhdCI6MTcxMDk1NzEyMSwiYXVkIjoiNTUwNjE5NWItODYxZi00ZjYxLThmMTktOTNkMWQ5ZmJmZGJlIiwiaXNzIjoiR3Jhdml0eSIsImp0aSI6IjY1ZmIyMjQxMzQ5YzQ5MDAwYzMzYTE5ZCJ9.NMIJ9aqmUuf443NnHqe7cRCW2j_8IbDeqXvlMPWAfTg"
         val appCenterAppSecret = "bf0c268f-4f9a-4b4e-9e85-fc431f0cc9c1"
         debug {
             buildConfigField("String", "XAPPTOKEN", "\"$apiAppToken\"")
