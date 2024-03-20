@@ -13,7 +13,7 @@ class ArtzTypeConverter {
     @TypeConverter
     fun imageLinksToString(links: Links?): String? {
         return links?.imageLinks?.let {
-            "${it.imageUrl}|${it.mediumImage}|${it.largeImageUrl}"
+            "${it.imageUrl}|${it.mediumImageUrl}|${it.largeImageUrl}"
         }
     }
 

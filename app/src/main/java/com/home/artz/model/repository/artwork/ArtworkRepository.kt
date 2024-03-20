@@ -45,7 +45,7 @@ class ArtworkRepository @Inject constructor(
         return artworks.onEach { artwork ->
             artwork.isFavorite = favoriteArtworkIds.contains(artwork.id)
             artwork.links.imageLinks?.imageUrl?.let { imageUrl ->
-                artwork.links.imageLinks.mediumImage = appendImageVersion(imageUrl, ImageVersion.MEDIUM)
+                artwork.links.imageLinks.mediumImageUrl = appendImageVersion(imageUrl, ImageVersion.MEDIUM)
                 artwork.links.imageLinks.largeImageUrl = appendImageVersion(imageUrl, ImageVersion.LARGE)
             }
         }

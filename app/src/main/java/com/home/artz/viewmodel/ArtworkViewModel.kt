@@ -98,7 +98,7 @@ class ArtworkViewModel @Inject constructor(
                 selectedArtwork.value = artwork
 
                 val imageUrl =
-                    artwork.links.imageLinks.largeImageUrl ?: artwork.links.imageLinks.mediumImage
+                    artwork.links.imageLinks.largeImageUrl ?: artwork.links.imageLinks.mediumImageUrl
                 imageUrl?.let {
                     withContext(Dispatchers.IO) {
                         try {
